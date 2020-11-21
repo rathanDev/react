@@ -13,12 +13,16 @@ class Counter extends Component {
     }
 
     render() {
+
+        let classes = 'badge m-2 ';
+        classes += (this.state.count === 0) ? 'badge-warning' : 'badge-primary';
+
         return (
             <React.Fragment>
                 <br/>
                 <img src={this.state.imageUrl} alt=""/>
                 <br/>
-                <span style={this.styles} className='badge badge-primary m-3'>{this.formatCount()}</span>
+                <span style={this.styles} className={classes}>{this.formatCount()}</span>
                 <button className='btn btn-secondary btn-sm'>Increment</button>
             </React.Fragment>
         );
