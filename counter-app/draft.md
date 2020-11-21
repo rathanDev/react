@@ -62,6 +62,13 @@ Setting Attributes
 
 Rendering classes dynamically
 
+Ctrl+Shift+R - Extract into a method
+
+Rendering Lists
+
+Conditional Rendering
+
+
 
 
 
