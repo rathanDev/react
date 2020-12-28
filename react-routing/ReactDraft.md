@@ -171,3 +171,16 @@ REACT_APP_ENV=qa npm run build
 
 ----------------------------------------------------------------------------------------
 
+React Routing
+https://medium.com/the-andela-way/understanding-the-fundamentals-of-routing-in-react-b29f806b157e
+https://www.youtube.com/watch?v=nxTL83mR1uE&ab_channel=ClueMediator
+https://reactrouter.com/web/guides/quick-start
+
+npm install --save react-router-dom
+
+
+----------------------------------------------------------------------------------------
+
+
+----------------------------------------------------------------------------------------
+
