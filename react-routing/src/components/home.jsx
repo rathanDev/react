@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-
 import Dashboard from './dashboard';
+import { useHistory } from 'react-router-dom';
 
 class Home extends Component {
 
@@ -11,7 +11,7 @@ class Home extends Component {
 
                 <div>
                     <h1>Login Here</h1>
-                    <button onClick={this.login}>Click to Login</button>
+                    <button onClick={() => this.login()}>Click to Login</button>
                 </div>
 
             </div>
@@ -19,8 +19,8 @@ class Home extends Component {
     }
 
     login() {
-        console.log('login');
-        return <Dashboard></Dashboard>
+        console.log('login to db');
+        this.props.history.push('/dashboard');
     }
 
 
