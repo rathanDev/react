@@ -10,8 +10,6 @@ function App() {
         integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous" />
       <script src="https://cdn.plot.ly/plotly-latest.min.js" />
 
-      {/* <title>React-Title</title> */}
-
       <TopNav />
       <Login />
 
