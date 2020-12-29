@@ -8,11 +8,11 @@ class Login extends Component {
 
                 <div id="top-bg"></div>
 
-                <div class="container pb-5 pt-2">
+                <div className="container pb-5 pt-2">
 
-                    <div class="row justify-content-center">
-                        <div class="col-12 col-lg-4">
-                            <div class="shadow p-3 bg-white rounded" id="login-form">
+                    <div className="row justify-content-center">
+                        <div className="col-12 col-lg-4">
+                            <div className="shadow p-3 bg-white rounded" id="login-form">
 
                                 <h5> Login </h5>
                                 <hr />
@@ -28,7 +28,7 @@ class Login extends Component {
 
                                     <input type="submit" value="Login" className="btn btn-primary btn-sm btn-block" />
                                 
-                                    <div class="container errorMessage"></div>
+                                    <div className="container errorMessage"></div>
 
                                     <hr />
 
