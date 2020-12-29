@@ -1,0 +1,488 @@
+@import url("https://fonts.googleapis.com/css?family=Work+Sans:400,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700,700i&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Archivo:400,700&display=swap&subset=latin-ext");
+@import url("https://fonts.googleapis.com/css?family=Karla:400,700");
+
+body {
+    font-family: "Karla", sans-serif;
+    font-size: 0.8em;
+}
+
+.bg-blue {
+    background-color: #CADEFF;
+}
+
+.bg-green {
+    background-color: #0BD096;
+}
+
+.nava-container {
+    padding-top: 1%;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+.navbar-brand>img {
+    height: 30px;
+}
+
+hr {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.DateInput_input {
+    font-size: 1.2em;
+}
+
+.bg-light {
+    background-color: #fbfcfd !important;
+}
+
+#device_status_pie_chart_container,
+#device_status_stack_plot_container,
+#device_status_stack_plot_production_container {
+    border: solid 1px #e0dee0;
+    border-radius: 3px;
+}
+
+.card-header {
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #e6e6e6;
+}
+
+._dash-undo-redo {
+    border: solid 1px #b1b1b1;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+.card-body {
+    padding: 10px;
+}
+
+.border-light-grey {
+    border-color: #e0dee0;
+}
+
+#top-container {
+    position: relative;
+    min-height: 400px;
+}
+
+#top-container #top-bg {
+    position: absolute;
+    top: 0;
+    background-size: cover;
+    height: 600px;
+    width: 100%;
+    /* background: url("../images/login-bg2.jpg") no-repeat center; */
+}
+
+#top-container .bullet-content p {
+    font-size: 16px;
+}
+
+#top-container .bullet-content .icon {
+    background-color: #0BD096;
+    border-radius: 100px;
+    padding: 20px;
+}
+
+#top-container .bullet-content .icon i {
+    color: #ffffff;
+}
+
+#top-container-small {
+    position: relative;
+    min-height: 100px;
+}
+
+#top-container-small #top-bg-small {
+    position: absolute;
+    top: 0;
+    background-size: cover;
+    height: 100px;
+    width: 100%;
+    background-color: #CADEFF;
+}
+
+#top-nav-container .logo img {
+    max-height: 40px;
+}
+
+#top-nav-container .top-nav-links a {
+    color: #343A40;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-left: 20px;
+}
+
+#top-nav-container .top-nav-links a:hover {
+    text-decoration: none;
+    color: dodgerblue;
+    border-bottom: solid 3px dodgerblue;
+}
+
+#intro {
+    position: relative;
+    top: -30px;
+}
+
+#intro .intro-text-lg {
+    font-size: 26px;
+}
+
+#intro .intro-text-sm {
+    font-size: 18px;
+}
+
+#login-container .intro-text {
+    font-size: 18px;
+}
+
+.box-item .icon {
+    border-radius: 100px;
+    padding: 20px;
+}
+
+.box-item .icon i {
+    color: #ffffff;
+}
+
+.box-item .text p {
+    font-size: 1.1em;
+}
+
+#screenshots {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+#screenshots .sh-text-container {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.DateInput_input {
+    font-size: 1em;
+}
+
+.footer-b-margin {
+    margin-bottom: 80px !important;
+}
+
+#bottom-message div.text {
+    font-size: 20px;
+}
+
+#bottom-message div.text a {
+    color: #EE5152;
+    border-bottom: solid 2px #EE5152;
+}
+
+#bottom-message div.text a:hover {
+    color: #EE5152;
+    text-decoration: none;
+    border-bottom: solid 2px #EE5152;
+}
+
+/*Login form styles*/
+#login-form form label {
+    display: block;
+}
+
+#login-form form input[type=text],
+#login-form form input[type=password] {
+    width: 100%;
+    padding: 5px;
+    border-radius: 3px;
+    border: solid 1px gray;
+}
+
+#demo-req-form label {
+    display: block;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#demo-req-form input[type=text],
+#demo-req-form input[type=password],
+#demo-req-form input[type=email],
+#demo-req-form textarea {
+    width: 100%;
+    padding: 5px;
+    border-radius: 3px;
+    border: solid 1px gray;
+}
+
+#demo-req-form #id_phone,
+#demo-req-form #id_job_title,
+#demo-req-form #id_message {
+    background-color: #F2F3F4;
+}
+
+#demo-req-form .box {
+    height: 20px;
+    width: 20px;
+    border: solid 1px darkgray;
+    background-color: #F2F3F4;
+}
+
+#demo-req-form .box-text {
+    line-height: 20px;
+    margin-left: 10px;
+}
+
+.component-text {
+    position: absolute;
+    z-index: 9999;
+    width: 5.6%;
+    height: 3.5%;
+    background-color: #ffffff;
+    border: solid 1px #0b0b0b;
+    font-size: 1vw;
+    text-align: right;
+    padding-right: 2px;
+}
+
+.notification {
+    position: absolute;
+    z-index: 9999;
+    width: 1.25%;
+    height: 3%;
+    background-color: red;
+    border: solid 1px black;
+    border-radius: 100px;
+}
+
+#compressor-diag {
+    position: relative;
+    /*recycle-1*/
+    /*recycle-2*/
+    /*recycle-3*/
+    /*recycle-4*/
+    /*makeup-2*/
+    /*makeup-1*/
+}
+
+#compressor-diag #compressor-bg {
+    position: relative;
+}
+
+#compressor-diag #motor-amp {
+    margin-top: 24.3%;
+    margin-left: 88.4%;
+}
+
+#compressor-diag #recycle-1 #sp {
+    margin-top: 31.72%;
+}
+
+#compressor-diag #recycle-1 #st {
+    margin-top: 35.1%;
+}
+
+#compressor-diag #recycle-1 #l-vlv {
+    margin-top: 38.5%;
+}
+
+#compressor-diag #recycle-1 #dp {
+    margin-top: 33.45%;
+    margin-left: 16.6%;
+}
+
+#compressor-diag #recycle-1 #dt {
+    margin-top: 36.77%;
+    margin-left: 16.6%;
+}
+
+#compressor-diag #recycle-1 #notification {
+    margin-top: 28.1%;
+    margin-left: 10.5%;
+}
+
+#compressor-diag #recycle-2 #sp {
+    margin-top: 9%;
+}
+
+#compressor-diag #recycle-2 #st {
+    margin-top: 12.42%;
+}
+
+#compressor-diag #recycle-2 #l-vlv {
+    margin-top: 15.74%;
+}
+
+#compressor-diag #recycle-2 #dp {
+    margin-top: 10.75%;
+    margin-left: 16.6%;
+}
+
+#compressor-diag #recycle-2 #dt {
+    margin-top: 14.1%;
+    margin-left: 16.6%;
+}
+
+#compressor-diag #recycle-2 #scrb-lvl {
+    margin-top: 1.1%;
+    margin-left: 8.18%;
+}
+
+#compressor-diag #recycle-2 #notification {
+    margin-top: 19.65%;
+    margin-left: 10.5%;
+}
+
+#compressor-diag #recycle-3 #sp {
+    margin-top: 31.72%;
+    margin-left: 25%;
+}
+
+#compressor-diag #recycle-3 #st {
+    margin-top: 35.1%;
+    margin-left: 25%;
+}
+
+#compressor-diag #recycle-3 #l-vlv {
+    margin-top: 38.5%;
+    margin-left: 25%;
+}
+
+#compressor-diag #recycle-3 #dp {
+    margin-top: 33.45%;
+    margin-left: 41.5%;
+}
+
+#compressor-diag #recycle-3 #dt {
+    margin-top: 36.77%;
+    margin-left: 41.5%;
+}
+
+#compressor-diag #recycle-3 #notification {
+    margin-top: 28.1%;
+    margin-left: 35.4%;
+}
+
+#compressor-diag #recycle-4 #sp {
+    margin-top: 31.72%;
+    margin-left: 49.9%;
+}
+
+#compressor-diag #recycle-4 #st {
+    margin-top: 35.1%;
+    margin-left: 49.9%;
+}
+
+#compressor-diag #recycle-4 #l-vlv {
+    margin-top: 38.5%;
+    margin-left: 49.9%;
+}
+
+#compressor-diag #recycle-4 #dp {
+    margin-top: 33.45%;
+    margin-left: 66.3%;
+}
+
+#compressor-diag #recycle-4 #dt {
+    margin-top: 36.77%;
+    margin-left: 66.3%;
+}
+
+#compressor-diag #recycle-4 #notification {
+    margin-top: 28.1%;
+    margin-left: 60.3%;
+}
+
+#compressor-diag #makeup-2 #sp {
+    margin-top: 9%;
+    margin-left: 24.9%;
+}
+
+#compressor-diag #makeup-2 #st {
+    margin-top: 12.42%;
+    margin-left: 24.9%;
+}
+
+#compressor-diag #makeup-2 #l-vlv {
+    margin-top: 15.74%;
+    margin-left: 24.9%;
+}
+
+#compressor-diag #makeup-2 #dp {
+    margin-top: 10.75%;
+    margin-left: 41.5%;
+}
+
+#compressor-diag #makeup-2 #dt {
+    margin-top: 14.1%;
+    margin-left: 41.5%;
+}
+
+#compressor-diag #makeup-2 #scrb-lvl {
+    margin-top: 1.1%;
+    margin-left: 45.85%;
+}
+
+#compressor-diag #makeup-2 #notification {
+    margin-top: 19.65%;
+    margin-left: 35.4%;
+}
+
+#compressor-diag #makeup-1 #sp {
+    margin-top: 9%;
+    margin-left: 49.9%;
+}
+
+#compressor-diag #makeup-1 #st {
+    margin-top: 12.42%;
+    margin-left: 49.9%;
+}
+
+#compressor-diag #makeup-1 #l-vlv {
+    margin-top: 15.74%;
+    margin-left: 49.9%;
+}
+
+#compressor-diag #makeup-1 #dp {
+    margin-top: 10.75%;
+    margin-left: 66.5%;
+}
+
+#compressor-diag #makeup-1 #dt {
+    margin-top: 14.1%;
+    margin-left: 66.5%;
+}
+
+#compressor-diag #makeup-1 #notification {
+    margin-top: 19.65%;
+    margin-left: 60.6%;
+}
+
+
+
+
+
+
+
+
+
+
+/* Changes */
+
+div#login-form {
+    margin-top: 20px;
+}
+
+button, input, optgroup, select, textarea {
+    margin: -5px 0 11px 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    /* margin-bottom: 10px; */
+}
+
+input.btn.btn-primary.btn-sm.btn-block {
+    margin-top: 10px;
+}
