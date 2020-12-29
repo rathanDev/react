@@ -19,15 +19,16 @@ class Login extends Component {
 
                                 <form method="post" action="">
 
-
                                     <label>Username</label>
-                                    <input type="text" name="username"/>
+                                    <input type="text" name="username" className="form-control" />
 
                                     <label>Password</label>
-                                    <input type="password" name="password1"/>
+                                    <input type="password" name="password1" className="form-control" />
+
+                                    <br />
 
                                     <input type="submit" value="Login" className="btn btn-primary btn-sm btn-block" />
-                                
+
                                     <div className="container errorMessage"></div>
 
                                     <hr />
