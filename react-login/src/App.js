@@ -1,6 +1,12 @@
 import './App.css';
+
 import Login from "./components/login";
 import TopNav from "./components/topNav";
+
+import { BrowserRouter as Router, Switch, Route, Link, NavLink } from "react-router-dom";
+
+import Home from './components/home';
+import Dashboard from './components/dashboard';
 
 function App() {
   return (
