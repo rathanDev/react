@@ -4,7 +4,7 @@ class Preference extends Component {
 
     render() {
         return(
-            <h1>Preferences</h1>
+            <div>Preferences</div>
         )
     }
 
