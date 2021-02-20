@@ -1,29 +1,63 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from 'react-router-dom';
+
+import Navbar from './components/navbar/navbar';
+
+
 import './App.css';
 
-import Amplify, { Auth } from 'aws-amplify';
-import awsconfig from './aws-exports';
-Amplify.configure(awsconfig);
+class App extends Component {
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  state = {
+    loggedIn: false
+  }
+
+  render() {
+
+    if (!this.state.loggedIn) {
+      return (
+        <Router>
+          <Navbar loggedIn={this.state.loggedIn} loggedOut={this.checkLoggedOut}></Navbar>
+        </Router>
+      );
+    }
+
+    return (
+      <div>
+        <Navbar loggedIn={this.state.loggedIn} loggedOut={this.checkLoggedOut} />
+      </div>
+    );
+
+  }
+
+  checkLoggedIn = (loggedIn) => {
+    if (loggedIn) {               // loggedIn
+      this.setState({
+        loggedIn: true
+      });
+    } else {                      // loggedOut
+      this.setState({
+        loggedIn: false
+      });
+    }
+  }
+
+  checkLoggedOut = (loggedOut) => {
+    if (loggedOut) {
+      this.setState({
+        loggedIn: false
+      });
+    }
+  }
+
 }
 
 export default App;
+
+
