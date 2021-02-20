@@ -30,12 +30,11 @@ class Navbar extends Component {
                     <div className="row align-items-center">
 
                         <div className="col-12 col-lg-6 text-center text-lg-left">
-                            <div className="logo">
+                            {/* <div className="logo">
                                 <a>
                                     AWS Cognito
-                                    {/* <img src={logo} alt="Panalytics" /> */}
                                 </a>
-                            </div>
+                            </div> */}
                         </div>
 
                         <div className="col-12 col-lg-6">

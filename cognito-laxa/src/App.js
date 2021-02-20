@@ -8,7 +8,7 @@ import {
 } from 'react-router-dom';
 
 import Navbar from './components/navbar/navbar';
-
+import Login from './components/login/login';
 
 import './App.css';
 
@@ -24,6 +24,11 @@ class App extends Component {
       return (
         <Router>
           <Navbar loggedIn={this.state.loggedIn} loggedOut={this.checkLoggedOut}></Navbar>
+          <Switch>
+            <Route path="/login">
+              <Login loggedIn={this.checkLoggedIn} />
+            </Route>
+          </Switch>
         </Router>
       );
     }
