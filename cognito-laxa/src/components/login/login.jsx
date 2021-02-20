@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import history from './../history';
 
+import { Auth } from 'aws-amplify';
+
 import './login.css';
 
 class Login extends Component {
@@ -16,6 +18,7 @@ class Login extends Component {
         this.setUsername = this.setUsername.bind(this);
         this.setPassword = this.setPassword.bind(this);
         this.login = this.login.bind(this);
+        this.signIn = this.signIn.bind(this);
         this.loggedIn = false;
     }
 
@@ -51,7 +54,7 @@ class Login extends Component {
                                     <br />
 
                                     <button className="btn btn-primary btn-sm btn-block"
-                                        onClick={this.login}
+                                        onClick={this.signIn}
                                         disabled={this.state.loading}>
                                         {!this.state.loading ? 'Login' : 'Logging In...'}
                                     </button>
@@ -88,8 +91,16 @@ class Login extends Component {
     }
 
     login() {
-        console.log('login');
-        
+        console.log('login', this.username, this.password);
+    }
+
+    async signIn() {
+        console.log('.............> signIn', this.username, this.password);
+        try {
+            const user = await Auth.signIn(this.username, this.password);
+        } catch (error) {
+            console.log('error signing in', error);
+        }
     }
 
 }
