@@ -7,8 +7,8 @@ import './login.css';
 
 Amplify.configure({
     aws_cognito_region: "us-east-1", // (required) - Region where Amazon Cognito project was created   
-    aws_user_pools_id: "us-east-1_6AfQ6", // (optional) -  Amazon Cognito User Pool ID   
-    aws_user_pools_web_client_id: "5t3le8878kgc72", // (optional) - Amazon Cognito App Client ID (App client secret needs to be disabled)
+    aws_user_pools_id: "us-east-1_VOeC1MLXZ", // (optional) -  Amazon Cognito User Pool ID   
+    aws_user_pools_web_client_id: "fujdfaqh521sba9ds8ibm5r7", // (optional) - Amazon Cognito App Client ID (App client secret needs to be disabled)
     aws_cognito_identity_pool_id: "us-east-1:f602c14b-0fde-409c-9a7e-0baccbfd87d0", // (optional) - Amazon Cognito Identity Pool ID   
     aws_mandatory_sign_in: "enable" // (optional) - Users are not allowed to get the aws credentials unless they are signed in   
 });
@@ -105,6 +105,8 @@ class Login extends Component {
         console.log('.............> signIn', this.username, this.password);
         try {
             const user = await Auth.signIn(this.username, this.password);
+            console.log('user', user);
+            localStorage.setItem('user', user);
         } catch (error) {
             console.log('error signing in', error);
         }
