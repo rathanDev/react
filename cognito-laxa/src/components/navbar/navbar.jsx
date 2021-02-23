@@ -21,6 +21,7 @@ class Navbar extends Component {
 
     render() {
         const loggedIn = this.props.loggedIn;
+        console.log('Navbar loggedIn:', loggedIn);
 
         return (
             <div id="top-nav-container" className="py-2">
@@ -28,31 +29,31 @@ class Navbar extends Component {
                 <div className="container-fluid">
 
                     {/* <Router> */}
-                        <div className="row align-items-center">
+                    <div className="row align-items-center">
 
-                            <div className="col-12 col-lg-6 text-center text-lg-left">
-                                {/* <div className="logo">
+                        <div className="col-12 col-lg-6 text-center text-lg-left">
+                            {/* <div className="logo">
                                 <a>
                                     AWS Cognito
                                 </a>
                             </div> */}
-                            </div>
-
-                            <div className="col-12 col-lg-6">
-                                <div className="main-nav float-lg-right">
-                                    <ul className="nav text-center">
-                                        <li className="nav-item"><Link to="/">Home</Link></li>
-                                        {loggedIn
-                                            ? <li className="nav-item"><Link to="/dashboard">Dashboard</Link></li>
-                                            : <span></span>}
-                                        {loggedIn
-                                            ? <li className="nav-item" onClick={this.logout}><a>Logout</a></li>
-                                            : <li className="nav-item"><Link to="/login">Login</Link></li>}
-                                    </ul>
-                                </div>
-                            </div>
-
                         </div>
+
+                        <div className="col-12 col-lg-6">
+                            <div className="main-nav float-lg-right">
+                                <ul className="nav text-center">
+                                    <li className="nav-item"><Link to="/">Home</Link></li>
+                                    {loggedIn
+                                        ? <li className="nav-item"><Link to="/dashboard">Dashboard</Link></li>
+                                        : <span></span>}
+                                    {loggedIn
+                                        ? <li className="nav-item" onClick={this.logout}><a>Logout</a></li>
+                                        : <li className="nav-item"><Link to="/login">Login</Link></li>}
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
                     {/* </Router> */}
                 </div>
 

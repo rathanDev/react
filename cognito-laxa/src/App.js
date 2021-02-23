@@ -24,19 +24,19 @@ class App extends Component {
 
     if (!this.state.loggedIn) {
       return (
-        <div>
-          <Router>
-            <Navbar loggedIn={this.state.loggedIn} loggedOut={this.checkLoggedOut}></Navbar>
-            <Switch>
-              <Route exact path="/login">
-                <Login loggedIn={this.checkLoggedIn} />
-              </Route>
-              <Route exact path="/">
-                <Home />
-              </Route>
-            </Switch>
-          </Router>
-        </div>
+        // <div>
+        <Router>
+          <Navbar loggedIn={this.state.loggedIn} loggedOut={this.checkLoggedOut}></Navbar>
+          <Switch>
+            <Route exact path="/login">
+              <Login loggedIn={this.checkLoggedIn} />
+            </Route>
+            <Route exact path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </Router>
+        // </div>
       );
     } else {
       return (
