@@ -3,14 +3,15 @@ import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from 'react-router-dom';
 
 import Navbar from './components/navbar/navbar';
 import Login from './components/login/login';
 
 import './App.css';
+import Home from './components/home/Home';
+import Dashboard from './components/dashboard/dashboard';
 
 class App extends Component {
 
@@ -19,29 +20,45 @@ class App extends Component {
   }
 
   render() {
+    console.log('AppJs render loggedIn:', this.state.loggedIn);
 
     if (!this.state.loggedIn) {
       return (
-        <Router>
-          <Navbar loggedIn={this.state.loggedIn} loggedOut={this.checkLoggedOut}></Navbar>
-          <Switch>
-            <Route path="/login">
-              <Login loggedIn={this.checkLoggedIn} />
-            </Route>
-          </Switch>
-        </Router>
+        <div>
+          <Router>
+            <Navbar loggedIn={this.state.loggedIn} loggedOut={this.checkLoggedOut}></Navbar>
+            <Switch>
+              <Route exact path="/login">
+                <Login loggedIn={this.checkLoggedIn} />
+              </Route>
+              <Route exact path="/">
+                <Home />
+              </Route>
+            </Switch>
+          </Router>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <Router>
+            <Navbar loggedIn={this.state.loggedIn} loggedOut={this.checkLoggedOut} />
+            <Switch>
+              <Route exact path="/dashboard">
+                <Dashboard />
+              </Route>
+              <Route exact path="/">
+                <Home />
+              </Route>
+            </Switch>
+          </Router>
+        </div>
       );
     }
-
-    return (
-      <div>
-        <Navbar loggedIn={this.state.loggedIn} loggedOut={this.checkLoggedOut} />
-      </div>
-    );
-
   }
 
   checkLoggedIn = (loggedIn) => {
+    console.log('checkLoggedIn', loggedIn);
     if (loggedIn) {               // loggedIn
       this.setState({
         loggedIn: true
@@ -54,6 +71,7 @@ class App extends Component {
   }
 
   checkLoggedOut = (loggedOut) => {
+    console.log('checkLoggedOut ', loggedOut);
     if (loggedOut) {
       this.setState({
         loggedIn: false

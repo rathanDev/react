@@ -107,8 +107,12 @@ class Login extends Component {
             const user = await Auth.signIn(this.username, this.password);
             console.log('user', user);
             localStorage.setItem('user', user);
+            history.push('./dashboard');
+            this.props.loggedIn(true);
         } catch (error) {
-            console.log('error signing in', error);
+            console.error('Error signing in', error);
+        } finally {
+            console.log('Finally block of siginIn');
         }
     }
 
