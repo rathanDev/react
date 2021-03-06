@@ -24,6 +24,11 @@ https://docs.amplify.aws/start/getting-started/installation/q/integration/react
 
 # ---------- ---------- ---------- ---------- #
 
+S3
+
+https://aws.amazon.com/blogs/mobile/deploy-a-react-app-to-s3-and-cloudfront-with-aws-mobile-hub/
+https://aws.amazon.com/blogs/mobile/integrate-the-aws-sdk-for-javascript-into-a-react-app/
+
 # ---------- ---------- ---------- ---------- #
 
 
