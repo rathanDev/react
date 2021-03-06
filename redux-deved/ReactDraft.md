@@ -51,6 +51,11 @@ store.dispatch(decrement());
 
 # --------------------------------------------------- #
 
+Redux dev tools
+
+https://github.com/reduxjs/redux-devtools
+
+window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 
 
 # --------------------------------------------------- #
