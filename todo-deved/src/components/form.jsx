@@ -41,6 +41,7 @@ const Form = ({ inputText, setInputText, todos, setTodos }) => {
 
         </form>
     );
+
 }
 
 export default Form;

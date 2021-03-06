@@ -10,18 +10,24 @@ const App = () => {
   const [todos, setTodos] = useState([]);
 
   return (
+
     <div className="App">
       <header>
         <h1>Hello, toDOers</h1>
       </header>
+
       <Form
         inputText={inputText}
         setInputText={setInputText}
         todos={todos}
         setTodos={setTodos}
       />
-      <TodoList />
+      <TodoList
+        todos={todos}
+      />
+
     </div>
+
   );
 
 }
