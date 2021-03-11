@@ -7,4 +7,10 @@ aws profile name : jana-amplify-pana
 
 npm i @aws-amplify/ui-react
 
+
+amplify configure 
+amplify init
+
+npm i @aws-amplify@latest
+
 -------------------------------------------------
