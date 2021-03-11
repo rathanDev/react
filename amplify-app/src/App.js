@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Amplify from 'aws-amplify';
+import Amplify, { Storage } from 'aws-amplify';
 import awsconfig from './aws-exports';
 import { AmplifySignOut, withAuthenticator } from '@aws-amplify/ui-react';
 
@@ -15,6 +15,16 @@ function App() {
       </header>
     </div>
   );
+
+  const listPublicBucket = async () => {
+    try {
+      const files = await Storage.list('');
+      console.log('files', files);
+    } catch (err) {
+      console.error('Err accessing public bucket', err);
+    }
+  }
+
 }
 
 export default withAuthenticator(App);

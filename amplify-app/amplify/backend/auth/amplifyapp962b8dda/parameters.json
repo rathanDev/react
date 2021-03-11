@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "amplifyapp962b8dda_identitypool_962b8dda",
-    "allowUnauthenticatedIdentities": false,
+    "identityPoolName": "Pana_Identity_Pool",
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "amplif962b8dda",
-    "userPoolName": "amplifyapp962b8dda_userpool_962b8dda",
+    "userPoolName": "PanaUserPool",
     "autoVerifiedAttributes": [
         "email"
     ],
