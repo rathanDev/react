@@ -1,9 +1,28 @@
+import { useState } from 'react'
 import './App.css';
+import TodoForm from './components/TodoForm';
+import TodoList from './components/TodoList';
 
-function App() {
+const App = () => {
+
+  const [todos, setTodos] = useState([])
+
+  const addTodo = todo => {
+    if (!todo.text)
+      return
+    const newTodos = [todo, ...todos]
+    setTodos(newTodos)
+    console.log(todo, ...todos)
+  }
+
   return (
     <div className="App">
-        Todo App - Jana
+      <TodoForm
+        onSubmit={addTodo}
+      />
+      <TodoList
+        todos={todos}
+      />
     </div>
   );
 }
