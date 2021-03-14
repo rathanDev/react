@@ -1,6 +1,5 @@
 import { useState } from 'react'
 
-
 const TodoForm = (props) => {
 
     const [input, setInput] = useState('')
@@ -31,9 +30,7 @@ const TodoForm = (props) => {
                 className='todo-input'
                 onChange={handleChange}
             />
-
             <button className='todo-button'>Add Todo</button>
-
         </form>
     )
 
