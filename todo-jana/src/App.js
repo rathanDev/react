@@ -17,6 +17,7 @@ const App = () => {
 
   return (
     <div className="App">
+      <h1>What's the plan today?</h1>
       <TodoForm
         onSubmit={addTodo}
       />
