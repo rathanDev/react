@@ -33,5 +33,11 @@
       },
       "lastPushDirHash": "9GSdo15zov/Lk//xU5a8uaz/0XY="
     }
+  },
+  "storage": {
+    "s3d19712a5": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation"
+    }
   }
 }

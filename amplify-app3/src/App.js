@@ -6,17 +6,10 @@ import { AmplifySignOut, withAuthenticator } from '@aws-amplify/ui-react';
 
 Amplify.configure(awsconfig);
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <AmplifySignOut />
-        <h2>Amplify App Content</h2>
-      </header>
-    </div>
-  );
+const App = () => {
 
   const listPublicBucket = async () => {
+    console.log('list bucket');
     try {
       const files = await Storage.list('');
       console.log('files', files);
@@ -24,6 +17,16 @@ function App() {
       console.error('Err accessing public bucket', err);
     }
   }
+
+  return (
+    <div className="App">
+      <header className="App-header">
+        <AmplifySignOut />
+        <h2>Amplify App Content</h2>
+        <button onClick={listPublicBucket}>List</button>
+      </header>
+    </div>
+  );
 
 }
 
