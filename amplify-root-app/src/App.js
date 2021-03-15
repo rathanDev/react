@@ -1,25 +1,33 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Amplify, { Storage } from 'aws-amplify';
+import awsconfig from './aws-exports';
+import { AmplifySignOut, withAuthenticator } from '@aws-amplify/ui-react';
 
-function App() {
+Amplify.configure(awsconfig);
+
+const App = () => {
+
+  const listPublicBucket = async () => {
+    console.log('list bucket');
+    try {
+      const files = await Storage.list('');
+      console.log('files', files);
+    } catch (err) {
+      console.error('Err accessing public bucket', err);
+    }
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <AmplifySignOut />
+        <h2>Amplify App Content</h2>
+        <button onClick={listPublicBucket}>List</button>
       </header>
     </div>
   );
+
 }
 
-export default App;
+export default withAuthenticator(App);
