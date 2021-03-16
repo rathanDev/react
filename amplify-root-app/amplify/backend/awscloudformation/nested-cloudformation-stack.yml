@@ -74,7 +74,7 @@
         "TemplateURL": "https://s3.amazonaws.com/amplify-amplifyrootapp-dev-72301-deployment/amplify-cfn-templates/auth/amplifyrootappfaadcbe7-cloudformation-template.yml",
         "Parameters": {
           "identityPoolName": "amplifyrootappfaadcbe7_identitypool_faadcbe7",
-          "allowUnauthenticatedIdentities": false,
+          "allowUnauthenticatedIdentities": true,
           "resourceNameTruncated": "ampliffaadcbe7",
           "userPoolName": "amplifyrootappfaadcbe7_userpool_faadcbe7",
           "autoVerifiedAttributes": "email",
@@ -115,6 +115,40 @@
           "serviceName": "Cognito",
           "usernameCaseSensitive": false,
           "dependsOn": "",
+          "env": "dev"
+        }
+      }
+    },
+    "storages3a52fa40f": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/amplify-amplifyrootapp-dev-72301-deployment/amplify-cfn-templates/storage/s3-cloudformation-template.json",
+        "Parameters": {
+          "bucketName": "amplifyrootapp1cac6bb1cdd04ba4bd387420a652022a",
+          "authPolicyName": "s3_amplify_a52fa40f",
+          "unauthPolicyName": "s3_amplify_a52fa40f",
+          "authRoleName": {
+            "Ref": "AuthRoleName"
+          },
+          "unauthRoleName": {
+            "Ref": "UnauthRoleName"
+          },
+          "selectedGuestPermissions": "s3:GetObject,s3:ListBucket",
+          "selectedAuthenticatedPermissions": "s3:PutObject,s3:GetObject,s3:ListBucket,s3:DeleteObject",
+          "s3PermissionsAuthenticatedPublic": "s3:PutObject,s3:GetObject,s3:DeleteObject",
+          "s3PublicPolicy": "Public_policy_f61bd77a",
+          "s3PermissionsAuthenticatedUploads": "s3:PutObject",
+          "s3UploadsPolicy": "Uploads_policy_f61bd77a",
+          "s3PermissionsAuthenticatedProtected": "s3:PutObject,s3:GetObject,s3:DeleteObject",
+          "s3ProtectedPolicy": "Protected_policy_e56aed8c",
+          "s3PermissionsAuthenticatedPrivate": "s3:PutObject,s3:GetObject,s3:DeleteObject",
+          "s3PrivatePolicy": "Private_policy_e56aed8c",
+          "AuthenticatedAllowList": "ALLOW",
+          "s3ReadPolicy": "read_policy_f61bd77a",
+          "s3PermissionsGuestPublic": "s3:GetObject",
+          "s3PermissionsGuestUploads": "DISALLOW",
+          "GuestAllowList": "ALLOW",
+          "triggerFunction": "NONE",
           "env": "dev"
         }
       }

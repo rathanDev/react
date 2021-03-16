@@ -1,6 +1,6 @@
 {
     "identityPoolName": "amplifyrootappfaadcbe7_identitypool_faadcbe7",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "ampliffaadcbe7",
     "userPoolName": "amplifyrootappfaadcbe7_userpool_faadcbe7",
     "autoVerifiedAttributes": [

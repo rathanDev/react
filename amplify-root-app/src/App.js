@@ -13,6 +13,11 @@ const App = () => {
     try {
       const files = await Storage.list('');
       console.log('files', files);
+      
+      const file = await Storage.get('4.png');
+      console.log('file 4.png', file);
+
+
     } catch (err) {
       console.error('Err accessing public bucket', err);
     }
