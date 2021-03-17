@@ -1,8 +1,14 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 const TodoForm = (props) => {
 
-    const [input, setInput] = useState('')
+    const [input, setInput] = useState(props.edit ? props.edit.value : '')
+
+    const inputRef = useRef(null)
+
+    useEffect(() => {
+        inputRef.current.focus()
+    })
 
     const handleChange = e => {
         setInput(e.target.value)
