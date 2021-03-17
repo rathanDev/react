@@ -33,13 +33,24 @@ class App extends Component {
   render() {
     return (
       <div className="App" >
-        Amplify File App with React 
+        Amplify File App with React
         <hr />
         <input type='file' onChange={this.handleChange} />
         <img src={this.state.fileUrl} />
+        <br />
         <button onClick={this.saveFile}>Save File</button>
       </div>
     );
+  }
+
+  componentDidMount() {
+    console.log('componentDidMount')
+    Storage.get('work.jpg')
+      .then(data => {
+        this.setState({
+          fileUrl: data
+        })
+      }).catch(err => { console.err('Err', err) })
   }
 
 
