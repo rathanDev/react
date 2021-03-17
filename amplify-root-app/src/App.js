@@ -11,11 +11,11 @@ const App = () => {
   const listPublicBucket = async () => {
     console.log('list bucket');
     try {
-      const files = await Storage.list('');
+      const files = await Storage.list('', { 'level': 'private'});
       console.log('files', files);
-      
-      const file = await Storage.get('4.png');
-      console.log('file 4.png', file);
+
+      const file = await Storage.get('2.png', { 'level': 'private'});
+      console.log('file png', file);
 
 
     } catch (err) {
