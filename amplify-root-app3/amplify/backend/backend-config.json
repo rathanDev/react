@@ -1,0 +1,16 @@
+{
+  "auth": {
+    "amplifyrootapp22887479": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  },
+  "storage": {
+    "ResourceNameS301d0b194": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation"
+    }
+  }
+}
