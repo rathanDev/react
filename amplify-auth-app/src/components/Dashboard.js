@@ -62,5 +62,5 @@ const Dashboard = () => {
     )
 }
 
-export default Dashboard;
-// export default withAuthenticator(Dashboard);
+// export default Dashboard;
+export default withAuthenticator(Dashboard);
