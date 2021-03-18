@@ -7,7 +7,7 @@ import awsconfig from './aws-exports';
 Amplify.configure(awsconfig);
 
 class App extends Component {
-  
+
   state = { fileUrl: '', file: '', filename: '' };
 
   handleChange = e => {
@@ -59,6 +59,12 @@ class App extends Component {
   // async 
   componentDidMount() {
     console.log('componentDidMount')
+
+    Storage.list('', { level: 'private' })
+      .then(data => {
+        console.log('list private ', data)
+      }).catch(err => { console.err('Err at list', err) })
+
     Storage.get('fitness.png', { level: 'private', expires: 300 })
       .then(data => {
         console.log('FileUrl', data)
