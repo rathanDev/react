@@ -63,21 +63,6 @@ const App = () => {
   //   </Router>
   // )
 
-  // return (
-  //   <div className="App">
-  //     Amplify Auth App
-  //     <AmplifySignOut />
-  //     <hr />
-  //     <input type='file' onChange={(e) => handleChange(e)} />
-  //     <br />
-  //     <button onClick={saveFile}>Save File</button>
-  //     <br />
-  //     <h3>File</h3>
-  //     <img src={fileUrl} />
-  //   </div>
-  // )
-
-
 }
 
 export default App;
