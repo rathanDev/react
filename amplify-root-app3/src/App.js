@@ -20,14 +20,16 @@ class App extends Component {
   }
 
   saveFile = () => {
-    Storage.put(this.state.filename, this.state.file)
-      .then(() => {
-        console.log('Successfully saved file')
-        this.setState({ fileUrl: '', file: '', filename: '' })
-      })
-      .catch(err => {
-        console.log('Err uploading file')
-      })
+    console.log('SaveFile')
+    Storage.put(this.state.filename, this.state.file, {
+      level: 'private',
+      contentType: 'image/jpeg'
+    }).then(() => {
+      console.log('Successfully saved file')
+      this.setState({ fileUrl: '', file: '', filename: '' })
+    }).catch(err => {
+      console.log('Err uploading file')
+    })
   }
 
   render() {
@@ -43,16 +45,18 @@ class App extends Component {
     );
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     console.log('componentDidMount')
-    Storage.get('work.jpg')
+    Storage.get('menAtWork.jpg', { level: 'private' })
       .then(data => {
         this.setState({
           fileUrl: data
         })
       }).catch(err => { console.err('Err', err) })
-  }
 
+    const downloadUrl = await Storage.get('menAtWork.jpg', { level: 'private', expires: 300 });
+    window.location.href = downloadUrl
+  }
 
 }
 
