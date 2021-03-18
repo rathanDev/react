@@ -23,9 +23,7 @@ const App = () => {
     Storage.get('fitness.png', { level: 'private', expires: 300 })
       .then(data => {
         console.log('FileUrl', data)
-        this.setState({
-          fileUrl: data
-        })
+        setFileUrl(data)
       }).catch(err => { console.err('Err', err) })
 
     // async
@@ -34,16 +32,16 @@ const App = () => {
 
   })
 
-  handleChange = e => {
+  const handleChange = (e) => {
     const file = e.target.files[0];
     setFile(file)
     setFileName(file.name)
     setFileUrl(URL.createObjectURL(file))
   }
 
-  saveFile = () => {
-    console.log('SaveFile')
-    Storage.put(this.state.filename, this.state.file, {
+  const saveFile = () => {
+    console.log('SaveFile ', fileName, file)
+    Storage.put(fileName, file, {
       level: 'private',
       contentType: 'image/jpeg'
     }).then(() => {
@@ -57,26 +55,17 @@ const App = () => {
   }
 
   return (
-    <div className="App" >
-      Amplify File App with React
+    <div className="App">
+      Amplify Auth App
       <hr />
-
-      <br />
-      <div>
-        <AmplifySignOut />
-      </div>
-
-      <br />
-
-      <input type='file' onChange={handleChange} />
+      <input type='file' onChange={(e) => handleChange(e)} />
       <br />
       <button onClick={saveFile}>Save File</button>
       <br />
-      <br />
-      <h3>Current Image</h3>
-      <img src={this.state.fileUrl} />
+      <h3>File</h3>
+      <img src={fileUrl} />
     </div>
-  );
+  )
 
 
 }

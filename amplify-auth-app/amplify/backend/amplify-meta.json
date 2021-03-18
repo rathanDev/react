@@ -1,0 +1,53 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-amplifyauthapp-dev-102509-authRole",
+      "UnauthRoleArn": "arn:aws:iam::606277630841:role/amplify-amplifyauthapp-dev-102509-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::606277630841:role/amplify-amplifyauthapp-dev-102509-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-amplifyauthapp-dev-102509-deployment",
+      "UnauthRoleName": "amplify-amplifyauthapp-dev-102509-unauthRole",
+      "StackName": "amplify-amplifyauthapp-dev-102509",
+      "StackId": "arn:aws:cloudformation:us-east-1:606277630841:stack/amplify-amplifyauthapp-dev-102509/2c461450-8791-11eb-b1ba-0ae04cd9df81",
+      "AmplifyAppId": "d343nvka78a6gj"
+    }
+  },
+  "auth": {
+    "amplifyauthapp73488628": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-amplifyauthapp-dev-102509-deployment/amplify-cfn-templates/auth/amplifyauthapp73488628-cloudformation-template.yml",
+        "logicalId": "authamplifyauthapp73488628"
+      },
+      "lastPushTimeStamp": "2021-03-18T02:41:06.509Z",
+      "output": {
+        "UserPoolId": "us-east-1_71WJYoc2y",
+        "AppClientIDWeb": "2iuu8et8n3jm98dhacu7r91lg9",
+        "AppClientID": "5gjffjpi89qnunpevvp54tb9mb",
+        "IdentityPoolId": "us-east-1:0d986bf7-f155-4a82-b8f8-f256b73f0b32",
+        "IdentityPoolName": "amplifyauthapp73488628_identitypool_73488628__dev",
+        "UserPoolName": "amplifyauthapp73488628_userpool_73488628"
+      },
+      "lastPushDirHash": "iQWpYbYjH5FPt2jsolayEbURheQ="
+    }
+  },
+  "storage": {
+    "amplifyauthres": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-amplifyauthapp-dev-102509-deployment/amplify-cfn-templates/storage/s3-cloudformation-template.json",
+        "logicalId": "storageamplifyauthres"
+      },
+      "lastPushTimeStamp": "2021-03-18T02:41:06.515Z",
+      "output": {
+        "BucketName": "amplifyauthresbucket102509-dev",
+        "Region": "us-east-1"
+      },
+      "lastPushDirHash": "3lDsJ5PF73ulZ3sFWbOvbOWcH4I="
+    }
+  }
+}
