@@ -7,7 +7,7 @@ import awsconfig from './aws-exports';
 Amplify.configure(awsconfig);
 
 class App extends Component {
-
+  
   state = { fileUrl: '', file: '', filename: '' };
 
   handleChange = e => {
@@ -37,25 +37,38 @@ class App extends Component {
       <div className="App" >
         Amplify File App with React
         <hr />
+
+        <br />
+        <div>
+          <AmplifySignOut />
+        </div>
+
+        <br />
+
         <input type='file' onChange={this.handleChange} />
-        <img src={this.state.fileUrl} />
         <br />
         <button onClick={this.saveFile}>Save File</button>
+        <br />
+        <br />
+        <h3>Current Image</h3>
+        <img src={this.state.fileUrl} />
       </div>
     );
   }
 
-  async componentDidMount() {
+  // async 
+  componentDidMount() {
     console.log('componentDidMount')
-    Storage.get('menAtWork.jpg', { level: 'private' })
+    Storage.get('fitness.png', { level: 'private', expires: 300 })
       .then(data => {
+        console.log('FileUrl', data)
         this.setState({
           fileUrl: data
         })
       }).catch(err => { console.err('Err', err) })
 
-    const downloadUrl = await Storage.get('menAtWork.jpg', { level: 'private', expires: 300 });
-    window.location.href = downloadUrl
+    // const downloadUrl = await Storage.get('fitness.png', { level: 'private', expires: 300 });
+    // window.location.href = downloadUrl
   }
 
 }
