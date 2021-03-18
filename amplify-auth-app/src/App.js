@@ -12,6 +12,7 @@ import Home from './components/Home';
 import About from './components/About';
 import Dashboard from './components/Dashboard';
 import Navbar from './components/Navbar/Navbar';
+import PanaDashboard from './components/PanaDashboard';
 
 const App = () => {
 
@@ -27,6 +28,9 @@ const App = () => {
         </Route>
         <Route path="/dashboard">
           <Dashboard />
+        </Route>
+        <Route path="/pana-dashboard">
+          <PanaDashboard />
         </Route>
       </Switch>
     </Router>

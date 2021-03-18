@@ -10,18 +10,19 @@ const Navbar = () => {
             <div className="container-fluid">
                 <div className="row align-items-center">
 
-                    <div className="col-12 col-lg-6 text-center text-lg-left">
+                    <div className="col-12 col-lg-3 text-center text-lg-left">
                         <div className="logo">
                             <a href="xyz.png" alt="Amplify App">Amplify App</a>
                         </div>
                     </div>
 
-                    <div className="col-12 col-lg-6">
+                    <div className="col-12 col-lg-9">
                         <div className="main-nav float-lg-right">
                             <ul className="nav text-center">
                                 <li className="nav-item"><Link to="/">Home</Link></li>
                                 <li className="nav-item"><Link to="/about">About</Link></li>
                                 <li className="nav-item"><Link to="/dashboard">Dashboard</Link></li>
+                                <li className="nav-item"><Link to="/pana-dashboard">PanaDashboard</Link></li>
                                 <li className="nav-item"><Link to="/"><AmplifySignOut /></Link></li>
                             </ul>
                         </div>
@@ -30,7 +31,6 @@ const Navbar = () => {
                 </div>
             </div>
         </div>
-
 
     )
 }
