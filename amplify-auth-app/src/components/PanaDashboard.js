@@ -2,8 +2,16 @@ import React, { useState, useEffect } from 'react'
 
 import { withAuthenticator } from '@aws-amplify/ui-react';
 import Amplify, { Storage } from 'aws-amplify';
-import {authResBucketConfig, panaDataBucketConfig} from '../aws-exports';
-Amplify.configure(panaDataBucketConfig);
+import { authResBucketConfig, panaDataBucketConfig, panaConfig } from '../aws-exports';
+Amplify.configure(panaConfig);
+
+Storage.configure({
+    customPrefix: {
+        public: 'daq/',
+        protected: 'reactProtected/',
+        private: 'reactPrivate/'
+    }
+})
 
 const PanaDashboard = () => {
 
@@ -14,14 +22,14 @@ const PanaDashboard = () => {
     useEffect(() => {
         console.log('Inside useEffect similar to componentDidMount')
 
-        Storage.list('', { level: 'private' })
+        Storage.list('')
             .then(data => {
-                console.log('PanaDashboard list private ', data)
+                console.log('PanaDashboard panalytics-data ', data)
             }).catch(err => { console.error('Err at list', err) })
 
-        Storage.get('menAtWork.jpg', { level: 'private', expires: 300 })
+        Storage.get('react1.png', { level: '', expires: 10 })
             .then(data => {
-                console.log('PanaDashboard FileUrl', data)
+                console.log('PanaDashboard FileUrl -> ', data)
                 if (data)
                     setFileUrl(data)
             }).catch(err => { console.error('Err', err) })
@@ -42,7 +50,7 @@ const PanaDashboard = () => {
     const saveFile = () => {
         console.log('SaveFile ', fileName, file)
         Storage.put(fileName, file, {
-            level: 'private',
+            level: '',
             contentType: 'image/jpeg'
         }).then(() => {
             console.log('PanaDashboard Successfully saved file')

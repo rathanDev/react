@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useState, Component } from 'react'
 import './App.css';
 import { AmplifySignOut, withAuthenticator } from '@aws-amplify/ui-react';
 import Amplify, { Storage } from 'aws-amplify';
@@ -7,6 +7,8 @@ import awsconfig from './aws-exports';
 Amplify.configure(awsconfig);
 
 class App extends Component {
+
+  const[fileUrl, setFileUrl] = useState()
 
   state = { fileUrl: '', file: '', filename: '' };
 
