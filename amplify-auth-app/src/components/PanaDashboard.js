@@ -24,10 +24,13 @@ const PanaDashboard = () => {
 
         Storage.list('')
             .then(data => {
-                console.log('PanaDashboard panalytics-data ', data)
+                console.log('Listed objects size:', data.length)
+                //console.log('PanaDashboard panalytics-data ', data)
+                data.length = 5;
+                data.map((e, index) => { console.log(index, " --> ", e) })
             }).catch(err => { console.error('Err at list', err) })
 
-        Storage.get('react1.png', { level: '', expires: 10 })
+        Storage.get('react3.png', { level: '', expires: 10 })
             .then(data => {
                 console.log('PanaDashboard FileUrl -> ', data)
                 if (data)
