@@ -1,14 +1,18 @@
-
 import './App.css';
 import MovieList from './components/MovieList'
+import Nav from './components/Nav'
+import { MovieProvider } from './components/MovieContext'
 
 const App = () => {
   return (
-    <div className="App">
-      Context API
+    <MovieProvider>
+      <div className="App">
+        Context API
       <hr />
-      <MovieList />
-    </div>
+        <Nav />
+        <MovieList />
+      </div>
+    </MovieProvider>
   );
 }
 
