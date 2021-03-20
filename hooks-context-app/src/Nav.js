@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { useState, useContext } from 'react'
+import { MovieContext } from './MovieContext'
 
 const Nav = () => {
+
+    const [movies, setMovies] = useContext(MovieContext)
+
     return (
         <div>
 
@@ -12,7 +16,7 @@ const Nav = () => {
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
                     <div class="form-inline my-2 my-lg-0">
-                        <div class="noOfMovies">No of movies: * </div>
+                        <div class="noOfMovies">No of movies: {movies.length} </div>
                     </div>
 
                 </div>
