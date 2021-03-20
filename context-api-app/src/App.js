@@ -1,6 +1,7 @@
 import './App.css';
 import MovieList from './components/MovieList'
 import Nav from './components/Nav'
+import AddMovie from './components/AddMovie'
 import { MovieProvider } from './components/MovieContext'
 
 const App = () => {
@@ -10,6 +11,7 @@ const App = () => {
         Context API
       <hr />
         <Nav />
+        <AddMovie />
         <MovieList />
       </div>
     </MovieProvider>
