@@ -49,6 +49,7 @@ amplifyrootappbucket-2e5744db
 
 
 -----------------------------------------------------------------
+-- Panalytics config 
 
 IdentityPool:  
 name        : Pana_Identity_Pool
@@ -64,7 +65,7 @@ id          : us-east-1_VOeC1MLXZ
 arn         : arn:aws:cognito-idp:us-east-1:723349630974:userpool/us-east-1_VOeC1MLXZ
 
 
-AppClientId : fujdfaqh521sba9ds8ibm5r7
+AppClientId : fujdfaqh521sba9ds8ibm5r7				*** double check 
 
 
 ---------------------------------------------------------------------------------------------

@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { withAuthenticator } from '@aws-amplify/ui-react';
 import Amplify, { Storage } from 'aws-amplify';
 import { authResBucketConfig, panaDataBucketConfig, panaConfig } from '../aws-exports';
+
 Amplify.configure(panaConfig);
 
 Storage.configure({
