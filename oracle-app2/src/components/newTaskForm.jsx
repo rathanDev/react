@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Task } from "./taskModel";
 
-const Form = ({ createTask }) => {
+const NewTaskForm = ({ createTask }) => {
   const [showNew, setShowNew] = useState(false);
 
+  const [taskId, setTaskId] = useState(1);
   const [taskDesc, setTaskDesc] = useState("");
-  const [taskDate, setTaskDate] = useState(new Date().toISOString().substring(0, 10));
+  const currentDate = new Date().toISOString().substring(0, 10);
+  const [taskDate, setTaskDate] = useState(currentDate);
 
   const onNewClick = (e) => {
     console.log(`show new ${showNew}`);
@@ -23,7 +25,8 @@ const Form = ({ createTask }) => {
 
   const onCreateClick = () => {
     console.log(`onCreateClick ${taskDesc} ${taskDate}`);
-    createTask(new Task(taskDesc, taskDate));
+    createTask(new Task(taskId, taskDesc, taskDate, "pending"));
+    setTaskId(taskId + 1);
   };
 
   return (
@@ -36,14 +39,26 @@ const Form = ({ createTask }) => {
 
       {showNew && (
         <div>
-          Create a New Task <br />
-          <input type="text" onChange={onTaskDescChange} value={taskDesc} /> <br />
-          <input type="text" onChange={onTaskDateChange} value={taskDate} /> <br />
-          <button onClick={onCreateClick}>Create</button>
+          Add Task <br />
+          Description:
+          <input
+            type="text"
+            onChange={onTaskDescChange}
+            value={taskDesc}
+          />
+          <br />
+          Date:
+          <input
+            type="text"
+            onChange={onTaskDateChange}
+            value={taskDate}
+          />
+          <br />
+          <button onClick={onCreateClick}>Save</button>
         </div>
       )}
     </div>
   );
 };
 
-export default Form;
+export default NewTaskForm;
