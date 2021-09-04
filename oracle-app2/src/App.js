@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import NewTaskForm from "./components/newTaskForm";
 import "./App.css";
 
-const App = ({ createTodo }) => {
+const App = () => {
   const [tasks, setTasks] = useState([]);
 
   const createTask = (task) => {
@@ -11,13 +11,30 @@ const App = ({ createTodo }) => {
     console.log(taskList);
   };
 
+  const onStatusCheckboxChange = (id) => {
+    console.log(id);
+    const newList = tasks.map((t) => {
+      if (t.id === id) {
+        t.status = t.status == "pending" ? "completed" : "pending";
+      }
+      return t;
+    });
+    console.log(newList);
+    setTasks(newList);
+  };
+
   const renderTasks = () => {
     console.log(`render ${tasks}`);
     return tasks.map((t) => (
-      <div>
+      <div key={t.id}>
         <div>{t.desc}</div>
         <div>{t.date}</div>
         <div>{t.status}</div>
+        <input
+          type="checkbox"
+          defaultChecked={t.status != "pending"}
+          onChange={() => onStatusCheckboxChange(t.id)}
+        />
         <br />
       </div>
     ));
