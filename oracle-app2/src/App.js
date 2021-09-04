@@ -7,8 +7,9 @@ const App = ({ createTodo }) => {
 
   const createTask = (task) => {
     console.log(`In App component ${task}`);
-    setTasks([...tasks, task]);
-    console.log(tasks);
+    const taskList = [...tasks, task];
+    setTasks(taskList);
+    console.log(taskList);
   };
 
   return (

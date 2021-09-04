@@ -1,24 +1,30 @@
 import React, { useState, useEffect } from "react";
+import { Task } from "./taskModel";
 
 const Form = ({ createTask }) => {
   const [showNew, setShowNew] = useState(false);
-  const [newTask, setNewTask] = useState("");
+
+  const [taskDesc, setTaskDesc] = useState("");
+  const [taskDate, setTaskDate] = useState(new Date().toISOString().substring(0, 10));
 
   const onNewClick = (e) => {
     console.log(`show new ${showNew}`);
     setShowNew(!showNew);
   };
 
-  const onInputChange = (e) => {
-    const text = e.target.value;
-    console.log(text);
-    setNewTask(text);
+  const onTaskDescChange = (e) => {
+    setTaskDesc(e.target.value);
+  };
+
+  const onTaskDateChange = (e) => {
+    const date = e.target.value;
+    setTaskDate(date);
   };
 
   const onCreateClick = () => {
-      console.log(`onCreateClick ${newTask}`);
-      createTask(newTask);
-  }
+    console.log(`onCreateClick ${taskDesc} ${taskDate}`);
+    createTask(new Task(taskDesc, taskDate));
+  };
 
   return (
     <div>
@@ -30,8 +36,9 @@ const Form = ({ createTask }) => {
 
       {showNew && (
         <div>
-          Create New Todo
-          <input type="text" onChange={onInputChange} value={newTask} />
+          Create a New Task <br />
+          <input type="text" onChange={onTaskDescChange} value={taskDesc} /> <br />
+          <input type="text" onChange={onTaskDateChange} value={taskDate} /> <br />
           <button onClick={onCreateClick}>Create</button>
         </div>
       )}
