@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Task } from "./taskModel";
+import "./newTaskForm.css";
 
 const NewTaskForm = ({ createTask }) => {
   const [showNew, setShowNew] = useState(false);

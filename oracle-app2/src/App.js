@@ -32,17 +32,19 @@ const App = () => {
   const renderTasks = () => {
     // console.log(`render ${tasks}`);
     return tasks.map((t) => (
-      <div key={t.id}>
-        <div>id: {t.id}</div>
-        <div>desc: {t.taskDesc}</div>
-        <div>date: {formatDate(t.taskDate)}</div>
-        <div>status: {t.taskStatus}</div>
-        <input
-          type="checkbox"
-          defaultChecked={t.taskStatus === "COMPLETED"}
-          onChange={() => onStatusCheckboxChange(t.id)}
-        />
-        <br />
+      <div className="card">
+        <div className="container" key={t.id}>
+          <h4>
+            <b>{t.taskDesc}</b>
+          </h4>
+          <p>{formatDate(t.taskDate)}</p>
+          <input
+            type="checkbox"
+            defaultChecked={t.taskStatus === "COMPLETED"}
+            onChange={() => onStatusCheckboxChange(t.id)}
+          />
+          <br />
+        </div>
       </div>
     ));
   };
@@ -50,16 +52,22 @@ const App = () => {
   return (
     <div className="App">
       <h1>Tasker</h1>
-      <NewTaskForm createTask={createTask}></NewTaskForm>
-      <br />
-      {tasks.length > 0 ? (
-        <div>
-          <div>List of tasks:</div>
-          {renderTasks()}
+
+      <div className="outer-card">
+        <div className="outer-container">
+          <NewTaskForm createTask={createTask}></NewTaskForm>
+          <br />
+
+          {tasks.length > 0 ? (
+            <div>
+              {renderTasks()}
+              {/* <div>List of tasks:</div> */}
+            </div>
+          ) : (
+            <div>No Tasks</div>
+          )}
         </div>
-      ) : (
-        <div>No Tasks</div>
-      )}
+      </div>
     </div>
   );
 };
