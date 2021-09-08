@@ -1,14 +1,8 @@
 export class Task {
-  // constructor() {
-  //   desc,
-  //   date,
-  //   status
-  // }
-
-  constructor(id, desc, date, status) {
-    this.id = id;
+  constructor(desc, date) {
+    this.id = "";
     this.desc = desc;
     this.date = date;
-    this.status = status;
+    this.status = "";
   }
 }

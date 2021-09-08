@@ -4,7 +4,6 @@ import { Task } from "./taskModel";
 const NewTaskForm = ({ createTask }) => {
   const [showNew, setShowNew] = useState(false);
 
-  const [taskId, setTaskId] = useState(1);
   const [taskDesc, setTaskDesc] = useState("");
   const currentDate = new Date().toISOString().substring(0, 10);
   const [taskDate, setTaskDate] = useState(currentDate);
@@ -25,8 +24,7 @@ const NewTaskForm = ({ createTask }) => {
 
   const onCreateClick = () => {
     console.log(`onCreateClick ${taskDesc} ${taskDate}`);
-    createTask(new Task(taskId, taskDesc, taskDate, "pending"));
-    setTaskId(taskId + 1);
+    createTask(new Task(taskDesc, taskDate));
   };
 
   return (

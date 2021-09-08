@@ -9,18 +9,29 @@ const App = () => {
   const BASE_URL = `http://localhost:8080`;
 
   useEffect(() => {
-    console.log(`Inside useEffect`);
-    axios.get(`${BASE_URL}/task`).then((res) => {
-      const taskList = res.data;
-      console.log(taskList);
-      setTasks(taskList);
-    });
+    retrieveAllTasks();
   }, []);
 
+  const retrieveAllTasks = () => {
+    axios.get(`${BASE_URL}/task`).then((res) => {
+      const taskList = res.data;
+      setTasks(taskList);
+    });
+  };
+
+  const saveTask = (task) => {
+    axios.post(`${BASE_URL}/task`, { task }).then((res) => {
+      console.log(`task saved ${res}`);
+    });
+  };
+
   const createTask = (task) => {
-    const taskList = [...tasks, task];
-    setTasks(taskList);
-    console.log(taskList);
+    console.log(`Create task {task}`);
+    saveTask(task);
+    retrieveAllTasks();
+    // const taskList = [...tasks, task];
+    // setTasks(taskList);
+    // console.log(taskList);
   };
 
   const onStatusCheckboxChange = (id) => {
