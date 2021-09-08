@@ -24,7 +24,7 @@ const NewTaskForm = ({ createTask }) => {
 
   const onCreateClick = () => {
     // console.log(`onCreateClick ${taskDesc} ${taskDate}`);
-    createTask(new Task(taskDesc, taskDate));
+    createTask(taskDesc, taskDate);
   };
 
   return (
@@ -39,18 +39,10 @@ const NewTaskForm = ({ createTask }) => {
         <div>
           Add Task <br />
           Description:
-          <input
-            type="text"
-            onChange={onTaskDescChange}
-            value={taskDesc}
-          />
+          <input type="text" onChange={onTaskDescChange} value={taskDesc} />
           <br />
           Date:
-          <input
-            type="text"
-            onChange={onTaskDateChange}
-            value={taskDate}
-          />
+          <input type="text" onChange={onTaskDateChange} value={taskDate} />
           <br />
           <button onClick={onCreateClick}>Save</button>
         </div>

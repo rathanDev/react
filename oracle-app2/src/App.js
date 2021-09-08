@@ -24,11 +24,11 @@ const App = () => {
       });
   };
 
-  const saveTask = (task) => {
+  const saveTask = (desc, date) => {
     axios
       .post(`${BASE_URL}/task`, {
-        taskDesc: "vsCode1",
-        taskDate: "2021-01-02",
+        taskDesc: desc,
+        taskDate: date,
       })
       .then((res) => {
         console.log(`Successfully saved task ${res}`);
@@ -38,9 +38,9 @@ const App = () => {
       });
   };
 
-  const createTask = (task) => {
+  const createTask = (desc, date) => {
     // console.log(`Create task ${task}`);
-    saveTask(task);
+    saveTask(desc, date);
     retrieveAllTasks();
     // const taskList = [...tasks, task];
     // setTasks(taskList);
