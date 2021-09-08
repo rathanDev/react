@@ -14,9 +14,10 @@ const App = () => {
     saveTask(desc, date, setTasks);
   };
 
-  const onStatusCheckboxChange = (id) => {
+  const onStatusCheckboxChange = (e, id) => {
     const task = tasks.filter((t) => t.id === id);
-    updateTask(id, task.taskDesc, task.taskDate, "COMPLETED", setTasks);
+    const status = e.target.checked ? 'COMPLETED' : 'PENDING';
+    updateTask(id, task.taskDesc, task.taskDate, status, setTasks);
   };
 
   const formatDate = (epoch) => {
@@ -41,7 +42,7 @@ const App = () => {
                 className="task-status"
                 type="checkbox"
                 defaultChecked={t.taskStatus === "COMPLETED"}
-                onChange={() => onStatusCheckboxChange(t.id)}
+                onChange={(e) => onStatusCheckboxChange(e, t.id)}
               />
             </div>
           </div>
@@ -57,14 +58,12 @@ const App = () => {
       <div className="outer-card">
         <div className="outer-container">
           <NewTaskForm createTask={createTask}></NewTaskForm>
-          <br />
-
           {tasks.length > 0 ? <div>{renderTasks()}</div> : <div>No Tasks</div>}
         </div>
       </div>
     </div>
   );
-  
+
 };
 
 export default App;
