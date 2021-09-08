@@ -1,9 +1,21 @@
 import React, { useState, useEffect } from "react";
 import NewTaskForm from "./components/newTaskForm";
+import axios from "axios";
 import "./App.css";
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
+
+  const BASE_URL = `http://localhost:8080`;
+
+  useEffect(() => {
+    console.log(`Inside useEffect`);
+    axios.get(`${BASE_URL}/task`).then((res) => {
+      const taskList = res.data;
+      console.log(taskList);
+      setTasks(taskList);
+    });
+  }, []);
 
   const createTask = (task) => {
     const taskList = [...tasks, task];
@@ -23,13 +35,22 @@ const App = () => {
     setTasks(newList);
   };
 
+  const formatDate = (epoch) => {
+    let date = new Date(epoch);
+    let y = new Intl.DateTimeFormat("en", { year: "numeric" }).format(date);
+    let m = new Intl.DateTimeFormat("en", { month: "2-digit" }).format(date);
+    let d = new Intl.DateTimeFormat("en", { day: "2-digit" }).format(date);
+    console.log("date ", y, m, d);
+    return `${y}-${m}-${d}`;
+  };
+
   const renderTasks = () => {
     console.log(`render ${tasks}`);
     return tasks.map((t) => (
       <div key={t.id}>
-        <div>{t.desc}</div>
-        <div>{t.date}</div>
-        <div>{t.status}</div>
+        <div>{t.taskDesc}</div>
+        <div>{formatDate(t.taskDate)}</div>
+        <div>{t.taskStatus}</div>
         <input
           type="checkbox"
           defaultChecked={t.status != "pending"}
