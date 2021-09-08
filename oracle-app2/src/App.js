@@ -1,54 +1,18 @@
 import React, { useState, useEffect } from "react";
 import NewTaskForm from "./components/newTaskForm";
-import axios from "axios";
+import { retrieveAllTasks, saveTask } from "./util/httpService";
 import "./App.css";
-import { Task } from "./components/taskModel";
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
 
-  const BASE_URL = `http://localhost:8080`;
-
   useEffect(() => {
-    console.log(`UseEffect`);
-    retrieveAllTasks();
+    console.log(`UseEffect----------------------------------------`);
+    retrieveAllTasks(setTasks);
   }, []);
 
-  const retrieveAllTasks = () => {
-    console.log(`Retrieve all tasks ${tasks}`);
-    axios
-      .get(`${BASE_URL}/task`)
-      .then((res) => {
-        const taskList = res.data;
-        console.log(`Retrieve ${taskList}`);
-        setTasks(taskList);
-      })
-      .catch((err) => {
-        console.error(`Err ${err}`);
-      });
-  };
-
-  const saveTask = (desc, date) => {
-    axios
-      .post(`${BASE_URL}/task`, {
-        taskDesc: desc,
-        taskDate: date,
-      })
-      .then((res) => {
-        console.log(`Successfully saved task ${res}`);
-        retrieveAllTasks();
-      })
-      .catch((err) => {
-        console.error(`Err at saving task ${err}`);
-      });
-  };
-
   const createTask = (desc, date) => {
-    // console.log(`Create task ${task}`);
-    saveTask(desc, date);
-    const taskList = [...tasks, new Task(desc, date)];
-    // setTasks(taskList);
-    // console.log(taskList);
+    saveTask(desc, date, setTasks);
   };
 
   const onStatusCheckboxChange = (id) => {

@@ -9,12 +9,12 @@ const NewTaskForm = ({ createTask }) => {
   const [taskDate, setTaskDate] = useState(currentDate);
 
   const onNewClick = (e) => {
-    console.log(`show new ${showNew}`);
     setShowNew(!showNew);
   };
 
   const onTaskDescChange = (e) => {
-    setTaskDesc(e.target.value);
+    const desc = e.target.value;
+    setTaskDesc(desc);
   };
 
   const onTaskDateChange = (e) => {
@@ -23,7 +23,6 @@ const NewTaskForm = ({ createTask }) => {
   };
 
   const onCreateClick = () => {
-    // console.log(`onCreateClick ${taskDesc} ${taskDate}`);
     createTask(taskDesc, taskDate);
   };
 
