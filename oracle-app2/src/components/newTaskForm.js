@@ -30,22 +30,58 @@ const NewTaskForm = ({ createTask }) => {
   return (
     <div>
       {!showNew ? (
-        <button onClick={onNewClick}>New</button>
+        <button className="new-button" onClick={onNewClick}>
+          New
+        </button>
       ) : (
-        <button onClick={onNewClick}>-</button>
+        <button className="new-button" onClick={onNewClick}>
+          -
+        </button>
       )}
 
       {showNew && (
-        <div>
-          Add Task <br />
-          Description:
-          <input type="text" onChange={onTaskDescChange} value={taskDesc} />
-          <br />
-          Date:
-          <input type="text" onChange={onTaskDateChange} value={taskDate} />
-          <br />
-          <button onClick={onCreateClick}>Save</button>
+        <div className="new-card">
+          <div className="new-container">
+            <h2>
+              <b>Add task</b>
+            </h2>
+            <p>
+              <label htmlFor="desc">Description</label>
+              <input
+                type="text"
+                id="desc"
+                name="desc"
+                onChange={onTaskDescChange}
+                value={taskDesc}
+              />
+            </p>
+            <p>
+              <label htmlFor="date">Date</label>
+              <input
+                type="text"
+                id="date"
+                name="date"
+                onChange={onTaskDateChange}
+                value={taskDate}
+              />
+            </p>
+            <button className="save-button" onClick={onCreateClick}>
+              Save
+            </button>
+            <br />
+          </div>
         </div>
+
+        // <div>
+        //   Add Task <br />
+        //   Description:
+        //   <input type="text" onChange={onTaskDescChange} value={taskDesc} />
+        //   <br />
+        //   Date:
+        //   <input type="text" onChange={onTaskDateChange} value={taskDate} />
+        //   <br />
+        //   <button onClick={onCreateClick}>Save</button>
+        // </div>
       )}
     </div>
   );

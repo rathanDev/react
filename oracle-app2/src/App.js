@@ -32,18 +32,22 @@ const App = () => {
   const renderTasks = () => {
     // console.log(`render ${tasks}`);
     return tasks.map((t) => (
-      <div className="card">
-        <div className="container" key={t.id}>
-          <h4>
-            <b>{t.taskDesc}</b>
-          </h4>
-          <p>{formatDate(t.taskDate)}</p>
-          <input
-            type="checkbox"
-            defaultChecked={t.taskStatus === "COMPLETED"}
-            onChange={() => onStatusCheckboxChange(t.id)}
-          />
-          <br />
+      <div className="card" key={t.id}>
+        <div className="container">
+          <p className="task-desc">
+            <b>{t.taskDesc}</b>{" "}
+          </p>
+          <div className="date-status">
+            <div className="task-date"> {formatDate(t.taskDate)} </div>
+            <div>
+              <input
+                className="task-status"
+                type="checkbox"
+                defaultChecked={t.taskStatus === "COMPLETED"}
+                onChange={() => onStatusCheckboxChange(t.id)}
+              />
+            </div>
+          </div>
         </div>
       </div>
     ));
