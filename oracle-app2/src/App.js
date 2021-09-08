@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import NewTaskForm from "./components/newTaskForm";
 import axios from "axios";
 import "./App.css";
+import { Task } from "./components/taskModel";
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
@@ -9,14 +10,17 @@ const App = () => {
   const BASE_URL = `http://localhost:8080`;
 
   useEffect(() => {
+    console.log(`UseEffect`);
     retrieveAllTasks();
   }, []);
 
   const retrieveAllTasks = () => {
+    console.log(`Retrieve all tasks ${tasks}`);
     axios
       .get(`${BASE_URL}/task`)
       .then((res) => {
         const taskList = res.data;
+        console.log(`Retrieve ${taskList}`);
         setTasks(taskList);
       })
       .catch((err) => {
@@ -32,6 +36,7 @@ const App = () => {
       })
       .then((res) => {
         console.log(`Successfully saved task ${res}`);
+        retrieveAllTasks();
       })
       .catch((err) => {
         console.error(`Err at saving task ${err}`);
@@ -41,8 +46,7 @@ const App = () => {
   const createTask = (desc, date) => {
     // console.log(`Create task ${task}`);
     saveTask(desc, date);
-    retrieveAllTasks();
-    // const taskList = [...tasks, task];
+    const taskList = [...tasks, new Task(desc, date)];
     // setTasks(taskList);
     // console.log(taskList);
   };
@@ -71,12 +75,13 @@ const App = () => {
     // console.log(`render ${tasks}`);
     return tasks.map((t) => (
       <div key={t.id}>
-        <div>{t.taskDesc}</div>
-        <div>{formatDate(t.taskDate)}</div>
-        <div>{t.taskStatus}</div>
+        <div>id: {t.id}</div>
+        <div>desc: {t.taskDesc}</div>
+        <div>date: {formatDate(t.taskDate)}</div>
+        <div>status: {t.taskStatus}</div>
         <input
           type="checkbox"
-          defaultChecked={t.status != "PENDING"}
+          defaultChecked={t.taskStatus !== "PENDING"}
           onChange={() => onStatusCheckboxChange(t.id)}
         />
         <br />
