@@ -71,17 +71,6 @@ const NewTaskForm = ({ createTask }) => {
             <br />
           </div>
         </div>
-
-        // <div>
-        //   Add Task <br />
-        //   Description:
-        //   <input type="text" onChange={onTaskDescChange} value={taskDesc} />
-        //   <br />
-        //   Date:
-        //   <input type="text" onChange={onTaskDateChange} value={taskDate} />
-        //   <br />
-        //   <button onClick={onCreateClick}>Save</button>
-        // </div>
       )}
     </div>
   );

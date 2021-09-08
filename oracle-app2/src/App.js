@@ -7,7 +7,6 @@ const App = () => {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
-    console.log(`UseEffect----------------------------------------`);
     retrieveAllTasks(setTasks);
   }, []);
 
@@ -16,7 +15,6 @@ const App = () => {
   };
 
   const onStatusCheckboxChange = (id) => {
-    console.log(`update status ${id}`);
     const task = tasks.filter((t) => t.id === id);
     updateTask(id, task.taskDesc, task.taskDate, "COMPLETED", setTasks);
   };
@@ -30,7 +28,6 @@ const App = () => {
   };
 
   const renderTasks = () => {
-    // console.log(`render ${tasks}`);
     return tasks.map((t) => (
       <div className="card" key={t.id}>
         <div className="container">
@@ -62,18 +59,12 @@ const App = () => {
           <NewTaskForm createTask={createTask}></NewTaskForm>
           <br />
 
-          {tasks.length > 0 ? (
-            <div>
-              {renderTasks()}
-              {/* <div>List of tasks:</div> */}
-            </div>
-          ) : (
-            <div>No Tasks</div>
-          )}
+          {tasks.length > 0 ? <div>{renderTasks()}</div> : <div>No Tasks</div>}
         </div>
       </div>
     </div>
   );
+  
 };
 
 export default App;
