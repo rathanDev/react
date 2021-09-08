@@ -1,8 +1,8 @@
 export class Task {
-  constructor(desc, date) {
+  constructor(taskDesc, taskDate) {
     this.id = "";
-    this.desc = desc;
-    this.date = date;
-    this.status = "";
+    this.taskDesc = taskDesc;
+    this.taskDate = taskDate;
+    this.taskStatus = "";
   }
 }

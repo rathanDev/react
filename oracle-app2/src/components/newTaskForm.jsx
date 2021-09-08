@@ -23,7 +23,7 @@ const NewTaskForm = ({ createTask }) => {
   };
 
   const onCreateClick = () => {
-    console.log(`onCreateClick ${taskDesc} ${taskDate}`);
+    // console.log(`onCreateClick ${taskDesc} ${taskDate}`);
     createTask(new Task(taskDesc, taskDate));
   };
 

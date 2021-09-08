@@ -13,20 +13,33 @@ const App = () => {
   }, []);
 
   const retrieveAllTasks = () => {
-    axios.get(`${BASE_URL}/task`).then((res) => {
-      const taskList = res.data;
-      setTasks(taskList);
-    });
+    axios
+      .get(`${BASE_URL}/task`)
+      .then((res) => {
+        const taskList = res.data;
+        setTasks(taskList);
+      })
+      .catch((err) => {
+        console.error(`Err ${err}`);
+      });
   };
 
   const saveTask = (task) => {
-    axios.post(`${BASE_URL}/task`, { task }).then((res) => {
-      console.log(`task saved ${res}`);
-    });
+    axios
+      .post(`${BASE_URL}/task`, {
+        taskDesc: "vsCode1",
+        taskDate: "2021-01-02",
+      })
+      .then((res) => {
+        console.log(`Successfully saved task ${res}`);
+      })
+      .catch((err) => {
+        console.error(`Err at saving task ${err}`);
+      });
   };
 
   const createTask = (task) => {
-    console.log(`Create task {task}`);
+    // console.log(`Create task ${task}`);
     saveTask(task);
     retrieveAllTasks();
     // const taskList = [...tasks, task];
@@ -47,16 +60,15 @@ const App = () => {
   };
 
   const formatDate = (epoch) => {
-    let date = new Date(epoch);
-    let y = new Intl.DateTimeFormat("en", { year: "numeric" }).format(date);
-    let m = new Intl.DateTimeFormat("en", { month: "2-digit" }).format(date);
-    let d = new Intl.DateTimeFormat("en", { day: "2-digit" }).format(date);
-    console.log("date ", y, m, d);
+    const date = new Date(epoch);
+    const y = new Intl.DateTimeFormat("en", { year: "numeric" }).format(date);
+    const m = new Intl.DateTimeFormat("en", { month: "2-digit" }).format(date);
+    const d = new Intl.DateTimeFormat("en", { day: "2-digit" }).format(date);
     return `${y}-${m}-${d}`;
   };
 
   const renderTasks = () => {
-    console.log(`render ${tasks}`);
+    // console.log(`render ${tasks}`);
     return tasks.map((t) => (
       <div key={t.id}>
         <div>{t.taskDesc}</div>
@@ -64,7 +76,7 @@ const App = () => {
         <div>{t.taskStatus}</div>
         <input
           type="checkbox"
-          defaultChecked={t.status != "pending"}
+          defaultChecked={t.status != "PENDING"}
           onChange={() => onStatusCheckboxChange(t.id)}
         />
         <br />
