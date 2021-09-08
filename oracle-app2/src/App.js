@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import NewTaskForm from "./components/newTaskForm";
-import { retrieveAllTasks, saveTask } from "./util/httpService";
+import { retrieveAllTasks, saveTask, updateTask } from "./util/httpService";
 import "./App.css";
 
 const App = () => {
@@ -16,15 +16,9 @@ const App = () => {
   };
 
   const onStatusCheckboxChange = (id) => {
-    console.log(id);
-    const newList = tasks.map((t) => {
-      if (t.id === id) {
-        t.status = t.status == "pending" ? "completed" : "pending";
-      }
-      return t;
-    });
-    console.log(newList);
-    setTasks(newList);
+    console.log(`update status ${id}`);
+    const task = tasks.filter((t) => t.id === id);
+    updateTask(id, task.taskDesc, task.taskDate, "COMPLETED", setTasks);
   };
 
   const formatDate = (epoch) => {
@@ -45,7 +39,7 @@ const App = () => {
         <div>status: {t.taskStatus}</div>
         <input
           type="checkbox"
-          defaultChecked={t.taskStatus !== "PENDING"}
+          defaultChecked={t.taskStatus === "COMPLETED"}
           onChange={() => onStatusCheckboxChange(t.id)}
         />
         <br />
