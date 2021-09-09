@@ -42,6 +42,32 @@ failed
 
 ---------------------------------------------------------------------
 
+https://jestjs.io/docs/tutorial-react
+
+---------------------------------------------------------------------
+
+https://www.toptal.com/react/tdd-react-unit-testing-enzyme-jest
+
+Jest and Enzyme 
+
+"devDependencies": {
+  "enzyme": "^2.9.1",
+  "jest": "^21.2.1",
+  "jest-cli": "^21.2.1",
+  "babel-jest": "^21.2.0"
+}
+
+
+
+---------------------------------------------------------------------
+
+const TASK_STATUS = {
+  HOVERED: 'hovered',
+  NORMAL: 'normal',
+};
+
+---------------------------------------------------------------------
+
 const taskList = [...tasks, new Task(desc, date)];
 
 // filter , create new list
