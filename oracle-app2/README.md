@@ -1,5 +1,5 @@
 # Clone or download the repository 
-git clone https://github.com/rathandev/******
+git clone https://github.com/rathanDev/oracle-react-app.git
 
 # Go to the root of the project and install all project's dependencies:
 npm i
