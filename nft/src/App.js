@@ -5,8 +5,10 @@ import react, { useState, useEffect } from "react";
 
 const App = () => {
   const [selectedAddress, setSelectedAddress] = useState("");
+  const [balance, setBalance] = useState(-1);
 
   useEffect(() => {
+    console.log("ethers-->", ethers);
     // connectToMetamask();
   }, []);
 
@@ -16,12 +18,17 @@ const App = () => {
     const accounts = await provider.send("eth_requestAccounts", []);
     console.log("accounts", accounts);
     setSelectedAddress(accounts[0]);
+    const balance = await provider.getBalance(selectedAddress);
+    console.log("balance", balance);
+    // const balanceInEther = ethers.utils.formatEther(balance);
+    setBalance(balance);
   };
 
   return (
     <div>
       Learning EtherJs
       <button onClick={connectToMetamask}>Connect to Metamask</button>
+      Balance: {ethers.utils.formatEther(balance)}
     </div>
   );
 };
