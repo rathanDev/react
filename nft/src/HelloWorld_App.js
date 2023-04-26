@@ -90,7 +90,7 @@ const App = () => {
 
   return (
     <div>
-      Learning EtherJs <br />
+      <h1>Minting NFT</h1>
       <button onClick={connectToMetamask}>Connect to Metamask</button> <br />
       <button onClick={handleName}>HandleName</button> <br />
       <button onClick={transferEther}>Transfer Ether</button> <br />

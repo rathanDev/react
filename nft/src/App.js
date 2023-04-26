@@ -66,11 +66,19 @@ const App = () => {
   };
 
   return (
-    <div>
-      Learn EtherJs with NFT <br />
+    <div className="container">
+      <h2>NFT Minting</h2>
+      <label for="input1">
+        <b>Input1</b>
+      </label>
+      <input type="text" name="input1" />
+      <label for="input2">
+        <b>Input2</b>
+      </label>
+      <input type="text" name="input2" />
+      Balance: {ethers.utils.formatEther(balance)}
       <button onClick={connectToMetamask}>Connect to Metamask</button> <br />
       <button onClick={transferEther}>Transfer Ether</button> <br />
-      Balance: {ethers.utils.formatEther(balance)}
     </div>
   );
 };
