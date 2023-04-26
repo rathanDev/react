@@ -14,10 +14,10 @@ https://hackernoon.com/how-to-load-unlimited-free-test-ethers-to-metamask-wallet
 
 mkdir hardhat
 npm init --y
-npm install hardhat 
+npm i --save-dev hardhat
+npm i --save-dev @nomicfoundation/hardhat-toolbox
 npx hardhat
 
-npm install --save-dev @nomicfoundation/hardhat-toolbox
 
 npx hardhat node
 

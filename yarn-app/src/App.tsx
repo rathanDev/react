@@ -14,7 +14,7 @@ type ITodos = {
 function App() {
   return (
       <div>
-        <button onClick={e => console.log("clicked")}>The button</button>
+        <button onClick={e => console.log()}>The button</button>
       </div>
   );
 }

@@ -7,7 +7,7 @@ const App = () => {
   const [selectedAccount, setSelectedAccount] = useState("");
   const [balance, setBalance] = useState(-1);
   const [block, setBlock] = useState("");
-  const contractAddress = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512";
+  const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
   const decimals = 18;
 
   useEffect(() => {
@@ -49,9 +49,31 @@ const App = () => {
     console.log("flipped?", flipped, new Date());
   };
 
+  const mintNFT = async () => {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
+
+    const contract = new ethers.Contract(contractAddress, NftAbi, provider);
+
+    const contractWithSigner = contract.connect(signer);
+
+    const receiptHash = ethers.utils.formatBytes32String("asdfghj");
+    const nftName = "dogImage";
+    const nftDesc = "black dog";
+    const nftUri = "https://image.com";
+    const mintResult = await contractWithSigner.mintNFT(
+      receiptHash,
+      nftName,
+      nftDesc,
+      nftUri
+    );
+    console.log("mintResult?", mintResult, new Date());
+  };
+
   return (
     <div className="container">
       <h2>NFT Minting</h2>
+      <button onClick={connectToMetamask}>Connect to Metamask</button>
       <label for="input1">
         <b>Input1</b>
       </label>
@@ -60,9 +82,9 @@ const App = () => {
         <b>Input2</b>
       </label>
       <input type="text" name="input2" />
-      Balance: {ethers.utils.formatEther(balance)}
-      <button onClick={connectToMetamask}>Connect to Metamask</button> <br />
+      Balance: {ethers.utils.formatEther(balance)} <br />
       <button onClick={flipMintingAllowed}>Flip Minting Allowed</button> <br />
+      <button onClick={mintNFT}>Mint NFT</button> <br />
     </div>
   );
 };

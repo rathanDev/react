@@ -14,3 +14,7 @@ input {
     height: 30px;
     display: block;
 }
+
+label {
+    display: block;
+}
