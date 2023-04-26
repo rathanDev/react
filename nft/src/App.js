@@ -7,7 +7,7 @@ const App = () => {
   const [selectedAccount, setSelectedAccount] = useState("");
   const [balance, setBalance] = useState(-1);
   const [block, setBlock] = useState("");
-  const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+  const contractAddress = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512";
   const decimals = 18;
 
   useEffect(() => {
@@ -34,35 +34,19 @@ const App = () => {
     });
     const contract = new ethers.Contract(contractAddress, NftAbi, provider);
     console.log("contract", contract);
-
-    // const contractName = await contract.name();
-    // console.log("contractName", contractName);
   };
 
-  const transferEther = async () => {
+  const flipMintingAllowed = async () => {
     console.log("At transfer-->", ethers);
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
 
     const contract = new ethers.Contract(contractAddress, NftAbi, provider);
-    console.log(contract);
-
-    // const tokenUnits = await contract.decimals();
-    const tokenAmountInEther = ethers.utils.parseUnits("100", decimals);
-    console.log(tokenAmountInEther);
 
     const contractWithSigner = contract.connect(signer);
-    // daiContractWithSigner.transfer(contractAddress, tokenAmountInEther);
 
-    // const tx = await contractWithSigner.transfer({
-    //   to: contractAddress,
-    //   value: tokenAmountInEther,
-    // });
-
-    // console.log(`Transaction hash: ${tx.hash}`);
-
-    const isSaleActive = await contractWithSigner.findIfSaleActive();
-    console.log("isSaleActive?", isSaleActive, new Date());
+    const flipped = await contractWithSigner.flipMintingAllowed();
+    console.log("flipped?", flipped, new Date());
   };
 
   return (
@@ -78,7 +62,7 @@ const App = () => {
       <input type="text" name="input2" />
       Balance: {ethers.utils.formatEther(balance)}
       <button onClick={connectToMetamask}>Connect to Metamask</button> <br />
-      <button onClick={transferEther}>Transfer Ether</button> <br />
+      <button onClick={flipMintingAllowed}>Flip Minting Allowed</button> <br />
     </div>
   );
 };
