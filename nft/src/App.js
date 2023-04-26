@@ -5,10 +5,15 @@ import NftAbi from "./NftAbi.json";
 
 const App = () => {
   const [selectedAccount, setSelectedAccount] = useState("");
+
+  const [receiptHash, setReceiptHash] = useState("");
+  const [nftName, setNftName] = useState("");
+  const [nftDesc, setNftDesc] = useState("");
+  const [nftUri, setNftUri] = useState("");
+
   const [balance, setBalance] = useState(-1);
   const [block, setBlock] = useState("");
   const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
-  const decimals = 18;
 
   useEffect(() => {
     connectToMetamask();
@@ -57,12 +62,9 @@ const App = () => {
 
     const contractWithSigner = contract.connect(signer);
 
-    const receiptHash = ethers.utils.formatBytes32String("asdfghj");
-    const nftName = "dogImage";
-    const nftDesc = "black dog";
-    const nftUri = "https://image.com";
+    const receiptHashInBytes = ethers.utils.formatBytes32String(receiptHash);
     const mintResult = await contractWithSigner.mintNFT(
-      receiptHash,
+      receiptHashInBytes,
       nftName,
       nftDesc,
       nftUri
@@ -74,14 +76,30 @@ const App = () => {
     <div className="container">
       <h2>NFT Minting</h2>
       <button onClick={connectToMetamask}>Connect to Metamask</button>
-      <label for="input1">
-        <b>Input1</b>
-      </label>
-      <input type="text" name="input1" />
-      <label for="input2">
-        <b>Input2</b>
-      </label>
-      <input type="text" name="input2" />
+      <label for="receiptHash">Receipt Hash</label>
+      <input
+        type="text"
+        name="receiptHash"
+        onChange={(e) => setReceiptHash(e.target.value)}
+      />
+      <label for="nftName">NFT Name</label>
+      <input
+        type="text"
+        name="nftName"
+        onChange={(e) => setNftName(e.target.value)}
+      />
+      <label for="nftDesc">NFT Description</label>
+      <input
+        type="text"
+        name="nftDesc"
+        onChange={(e) => setNftDesc(e.target.value)}
+      />
+      <label for="nftUri">NFT URI</label>
+      <input
+        type="text"
+        name="nftUri"
+        onChange={(e) => setNftUri(e.target.value)}
+      />
       Balance: {ethers.utils.formatEther(balance)} <br />
       <button onClick={flipMintingAllowed}>Flip Minting Allowed</button>
       <button onClick={mintNFT}>Mint NFT</button> <br />
