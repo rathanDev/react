@@ -7,7 +7,7 @@ const App = () => {
   const [selectedAccount, setSelectedAccount] = useState("");
   const [balance, setBalance] = useState(-1);
   const [block, setBlock] = useState("");
-  const contractAddress = "0xd8b934580fcE35a11B58C6D73aDeE468a2833fa8";
+  const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
   const decimals = 18;
 
   useEffect(() => {
