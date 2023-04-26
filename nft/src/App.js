@@ -83,7 +83,7 @@ const App = () => {
       </label>
       <input type="text" name="input2" />
       Balance: {ethers.utils.formatEther(balance)} <br />
-      <button onClick={flipMintingAllowed}>Flip Minting Allowed</button> <br />
+      <button onClick={flipMintingAllowed}>Flip Minting Allowed</button>
       <button onClick={mintNFT}>Mint NFT</button> <br />
     </div>
   );

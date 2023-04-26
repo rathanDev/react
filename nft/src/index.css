@@ -18,3 +18,8 @@ input {
 label {
     display: block;
 }
+
+button {
+    display: block;
+    margin: 5px 0;
+}
