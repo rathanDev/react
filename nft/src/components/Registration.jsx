@@ -6,12 +6,12 @@ const Registration = () => {
     const [walletAddress, setWalletAddress] = useState("");
 
     const register = () => {
-        const requestOptions = {
+        const req = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ nric: nric, walletAddress: walletAddress })
         };
-        fetch('https://reqres.in/api/posts', requestOptions)
+        fetch('http://localhost:8080/register', req)
             .then(response => response.json())
             .then(data => { console.log(data); });
     }
