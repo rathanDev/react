@@ -1,7 +1,9 @@
 import "./App.css";
-import react, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { ethers } from "ethers";
 import NftAbi from "./NftAbi.json";
+import Registration from "./components/Registration";
+// import TodoList from "./components/TodoList";
 
 const App = () => {
   const [selectedAccount, setSelectedAccount] = useState("");
@@ -74,6 +76,7 @@ const App = () => {
 
   return (
     <div className="container">
+      <Registration />
       <h2>NFT Minting</h2>
       <button onClick={connectToMetamask}>Connect to Metamask</button>
       <label for="receiptHash">Receipt Hash</label>
