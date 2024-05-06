@@ -1,0 +1,10 @@
+Ref:
+
+Next js Tutorial for Beginners | Nextjs 13 (App Router) with TypeScript
+https://www.youtube.com/watch?v=ZVnjOPwW4ZA&ab_channel=ProgrammingwithMosh
+
+
+
+
+
+
