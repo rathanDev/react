@@ -8,3 +8,10 @@ https://www.youtube.com/watch?v=ZVnjOPwW4ZA&ab_channel=ProgrammingwithMosh
 https://my-json-server.typicode.com/
 
 
+> npm run dev 
+        to run app 
+
+> npm run build 
+        to build at server side 
+> npm start 
+        to start the app

@@ -9,11 +9,11 @@ const UserPage = async () => {
 
     const res = await fetch(
         'https://jsonplaceholder.typicode.com/typicode/demo/posts',
-        // {cache: 'no-store'}
-        {next: { revalidate : 10 }}
+        {cache: 'no-store'}
+        // {next: { revalidate : 10 }}
     );
     const posts: Post[] = await res.json();
-    console.log('posts', posts);
+    // console.log('posts', posts);
 
     return (
         <>
