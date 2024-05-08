@@ -15,7 +15,7 @@ const Home = () => {
                 </span>
             </h1>
             <p className='desc text-center'>
-                Promptia is an open-source AI prompting tool 
+                Promptia is an open-source AI prompting tool for beginners
             </p>
 
             <Feed/>
