@@ -1,20 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import Dashboard from "./components/dashboard";
+import { DashboardContext } from "./context/userContext";
 
 export interface User {
   isSubscribed: boolean;
   name: string;
 }
 
-function App() {
+const App = () => {
+  const [user] = useState<User>({
+    isSubscribed: true,
+    name: "YOU",
+  });
+
   return (
     <div>
       <h1>App2 - With Context API</h1>
-      <Dashboard />
+
+      <DashboardContext.Provider value={user}>
+        <Dashboard />
+      </DashboardContext.Provider>
     </div>
   );
-}
+};
 
 export default App;
