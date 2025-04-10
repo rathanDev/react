@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import { DashboardContext } from "../context/userContext";
+import { UserContext } from "../context/userContext";
 
 const Sidebar = () => {
-  const user = useContext(DashboardContext);
+  const user = useContext(UserContext);
 
   return (
     <div>
