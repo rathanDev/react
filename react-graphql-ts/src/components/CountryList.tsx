@@ -1,5 +1,5 @@
 ﻿import type {Country} from "../types/country";
-import CountryItem from './CountryItem';
+import CountryItem from "./CountryItem";
 
 interface Props {
     countries: Country[];
@@ -7,10 +7,10 @@ interface Props {
 
 export default function CountryList({countries}: Props) {
     return (
-        <ul>
+        <>
             {countries.map((country) => (
                 <CountryItem key={country.code} country={country}/>
             ))}
-        </ul>
+        </>
     );
 }
