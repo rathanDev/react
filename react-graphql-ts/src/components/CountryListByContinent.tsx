@@ -2,6 +2,9 @@
 import type {CountriesResponse, Country} from "../types/country.ts";
 import {client} from "../grahqlClient";
 import {getCountriesByContinent} from "../queries/getCountriesByContinent";
+import Loading from "./Loading"
+import CountryList from "./CountryList";
+import React from "react";
 
 interface Props {
     continentCode: string;
@@ -26,19 +29,7 @@ export default function CountryListByContinent({continentCode}: Props) {
             })
     }, [continentCode]);
 
-    if (loading) return <p>Loading...</p>
+    if (loading) return <Loading/>
 
-    return (
-        <ul>
-            {countries.map((country) => (
-                <li key={country.code}>
-                    <strong>{country.name}</strong> ({country.native}) - {country.capital} 🇨🇭 {country.emoji}
-                    <br/>
-                    Currency: {country.currency ?? 'NA'}, Phone: +{country.phone}
-                    <br/>
-                    Languages: {country.languages.map((lang) => lang.name).join(', ') || 'None'}
-                </li>
-            ))}
-        </ul>
-    )
+    return <CountryList countries={countries}/>
 }
