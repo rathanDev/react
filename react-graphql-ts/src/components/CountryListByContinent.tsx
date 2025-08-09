@@ -1,36 +1,13 @@
-﻿import {useEffect, useState} from "react";
-import type {CountriesResponse, Country} from "../types/country.ts";
-import {gqlClient} from "../grahqlClient";
-import {getCountriesByContinentQuery} from "../queries/getCountriesByContinentQuery";
-import Loading from "./Loading"
+﻿import type {Country} from "../graphql/types/country.ts";
 import CountryList from "./CountryList";
 
 interface Props {
-    continentCode: string;
+    countries: Country[];
 }
 
-export default function CountryListByContinent({continentCode}: Props) {
-    const [countries, setCountries] = useState<Country[]>([]);
-    const [loading, setLoading] = useState(true);
+export default function CountryListByContinent({countries}: Props) {
 
-    useEffect(() => {
-        setLoading(true);
-        gqlClient
-            .request<CountriesResponse>(getCountriesByContinentQuery, {
-                continentCode: continentCode,
-            })
-            .then((data) => {
-                console.log("Fetched countries", data)
-                setCountries(data?.countries ?? []);
-                setLoading(false);
-            })
-            .catch((err) => {
-                console.error(err);
-                setLoading(false);
-            })
-    }, [continentCode]);
-
-    if (loading) return <Loading/>
+    if (!countries || countries.length == 0) return <p>No countries available!</p>
 
     return <CountryList countries={countries}/>
 }

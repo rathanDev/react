@@ -1,4 +1,4 @@
-﻿import type {Country} from "../types/country";
+﻿import type {Country} from "../graphql/types/country";
 import CountryItem from "./CountryItem";
 
 interface Props {

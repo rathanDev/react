@@ -5,20 +5,12 @@
 
 type Props = {
     selected: string;
-    onChange: (code: string) => void
+    onChange: (code: string) => void;
+    disabled: boolean;
+    continents: Continent[];
 }
 
-const continents: Continent[] = [
-    {code: "AF", name: "Africa"},
-    {code: "AN", name: "Antartica"},
-    {code: "AS", name: "Asia"},
-    {code: "EU", name: "Europe"},
-    {code: "NA", name: "North America"},
-    {code: "OC", name: "Oceania"},
-    {code: "SA", name: "South America"}
-]
-
-const ContinentSelector = ({selected, onChange}: Props) => {
+const ContinentSelector = ({selected, onChange, disabled, continents}: Props) => {
     return (
         <div>
             <label htmlFor="continent-select">Select a continent</label>
@@ -26,7 +18,8 @@ const ContinentSelector = ({selected, onChange}: Props) => {
                 name="cs"
                 id="contient-select"
                 value={selected}
-                onChange={(e) => onChange(e.target.value)}>
+                onChange={(e) => onChange(e.target.value)}
+                disabled={disabled}>
                 {continents.map(({code, name}) => (
                     <option key={code} value={code}>{name}</option>
                 ))}
