@@ -28,7 +28,6 @@ export default function CountryItem({country}: Props) {
                     <td>{country.languages.length > 0 ? country.languages.map(lang => lang.name).join(", ") : "None"}</td>
                     <td>{country.continent.name} ({country.continent.code})</td>
                 </tr>
-
                 </tbody>
             </table>
         </>
