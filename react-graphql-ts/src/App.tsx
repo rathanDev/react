@@ -1,5 +1,5 @@
 import './App.css'
-import CountryListByContinent from "./components/CountryListByContinent";
+import CountryList from "./components/CountryList";
 import ContinentSelector from "./components/ContinentSelector";
 import {useState} from "react";
 import {useContinents} from "./hooks/useContinents";
@@ -21,9 +21,9 @@ function App() {
                                onChange={setSelectedContinent}
                                disabled={continentsLoading}
                                continents={continents}/>
-            <CountryListByContinent countries={countries}/>
+            <CountryList countries={countries}/>
         </div>
     )
 }
 
-export default App
+export default App;

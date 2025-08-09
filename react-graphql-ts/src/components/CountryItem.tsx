@@ -1,4 +1,4 @@
-﻿import type {Country} from "../graphql/types/country.ts";
+﻿import type {Country} from "../types/appTypes.ts";
 
 interface Props {
     country: Country;

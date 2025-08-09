@@ -1,5 +1,5 @@
 ﻿import {useEffect, useState} from "react";
-import type {Country} from "../graphql/types/country";
+import type {Country} from "../types/appTypes";
 import {gqlClient} from "../graphql/gqlClient";
 import {getCountriesByContinentQuery} from "../graphql/queries/getCountriesByContinentQuery";
 
