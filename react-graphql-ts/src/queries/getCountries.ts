@@ -2,10 +2,19 @@
 
 export const getCountries = gql`
   query {
-    countries {
-      code
-      name
-      emoji
-    }
+      countries {
+        name
+        capital
+        population
+        region
+        languages {
+          name
+        }
+        currencies {
+          name
+          symbol
+        }
+        flag
+      }
   }
 `;

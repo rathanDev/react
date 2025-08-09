@@ -1,12 +1,12 @@
 import './App.css'
-import CountryList from "./components/CountryList.tsx";
+import CountryListByContinent from "./components/CountryListByContinent";
 
 function App() {
 
     return (
         <div>
             <h1>🌍 Countries of the World</h1>
-            <CountryList/>
+            <CountryListByContinent continentCode="AS"/>
         </div>
     )
 }
