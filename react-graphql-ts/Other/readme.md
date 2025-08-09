@@ -2,3 +2,6 @@
 
 npm i graphql graphql-request
 
+vite build 
+
+
