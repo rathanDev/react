@@ -1,6 +1,6 @@
 ﻿import {gql} from 'graphql-request';
 
-export const getCountriesByContinent = gql`
+export const getCountriesByContinentQuery = gql`
   query GetCountries($continentCode: String!) {
     countries(filter: { continent: { eq: $continentCode } }) {
       code

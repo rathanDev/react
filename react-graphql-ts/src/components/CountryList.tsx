@@ -1,5 +1,4 @@
-﻿import React from "react";
-import type {Country} from "../types/country";
+﻿import type {Country} from "../types/country";
 import CountryItem from './CountryItem';
 
 interface Props {
