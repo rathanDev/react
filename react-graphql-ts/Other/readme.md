@@ -10,4 +10,9 @@ npx graphql-codegen init
 npx graphql-codegen
 
 
+# Cancels graphql request when component is unmounted - handles using a cache - on mounted flag required
+npm install @tanstack/react-query
+
+
+
 

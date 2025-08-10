@@ -6,13 +6,13 @@ import {useContinents} from "./hooks/useContinents";
 import {useCountries} from "./hooks/useCountries";
 
 function App() {
-    const {data: continents, loading: continentsLoading, error: continentsErr} = useContinents();
+    const {data: continents, isLoading: continentsLoading, error: continentsErr} = useContinents();
     const [selectedContinent, setSelectedContinent] = useState<string>("");
 
     const {data: countries, loading: countriesLoading, error: countriesError} = useCountries(selectedContinent);
 
     if (continentsLoading || countriesLoading) return <p>Continents loading...</p>
-    if (continentsErr || countriesError) return <p>Continents err...</p>
+    if (!continents || continentsErr || countriesError) return <p>Continents err...</p>
 
     return (
         <div>

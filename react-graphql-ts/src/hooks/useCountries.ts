@@ -4,15 +4,15 @@ import {gqlClient} from "../graphql/gqlClient";
 // import {getCountriesByContinentQuery} from "../graphql/queries/getCountriesByContinentQuery";
 import {GetCountriesByContinentDocument} from "../graphql/queries/generated/graphql";
 
-export function useCountries(continentCode?: string | null) {
-    const [data, setData] = useState<Country[] | null>(null);
+export function useCountries(continentCode: string) {
+    const [data, setData] = useState<Country[]>([]);
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<Error | null>(null);
 
     useEffect(() => {
         console.log("ContinentCode", continentCode)
         if (!continentCode) {
-            setData(null);
+            setData([]);
             setLoading(false);
             setError(null);
             return;
