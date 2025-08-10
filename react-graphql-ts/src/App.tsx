@@ -9,10 +9,11 @@ function App() {
     const {data: continents, isLoading: continentsLoading, error: continentsErr} = useContinents();
     const [selectedContinent, setSelectedContinent] = useState<string>("");
 
-    const {data: countries, loading: countriesLoading, error: countriesError} = useCountries(selectedContinent);
+    const {data: countries, isLoading: countriesLoading, error: countriesError} = useCountries(selectedContinent);
 
     if (continentsLoading || countriesLoading) return <p>Continents loading...</p>
-    if (!continents || continentsErr || countriesError) return <p>Continents err...</p>
+    if (!continents || continentsErr) return <p>Continents err...</p>
+    if (!countries || countriesError) return <p>Countries err...</p>
 
     return (
         <div>

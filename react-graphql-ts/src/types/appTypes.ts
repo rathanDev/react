@@ -10,12 +10,13 @@ export type Continent = {
 }
 
 export type Country = {
+    __typename?: "Country" | undefined;
     code: string;
     name: string;
     native: string;
     phone: string;
-    capital: string;
-    currency: string;
+    capital?: string | null | undefined;
+    currency?: string | null | undefined;
     emoji: string;
     emojiU: string;
     continent: Continent;
