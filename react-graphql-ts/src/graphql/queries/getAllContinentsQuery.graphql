@@ -1,0 +1,6 @@
+﻿query GetAllContinents {
+    continents {
+        code
+        name
+    }
+}

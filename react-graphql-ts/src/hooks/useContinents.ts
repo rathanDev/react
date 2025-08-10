@@ -1,7 +1,8 @@
 ﻿import {useEffect, useState} from "react";
 import type {Continent} from "../types/appTypes";
 import {gqlClient} from "../graphql/gqlClient";
-import {getAllContinentsQuery} from "../graphql/queries/getAllContinentsQuery";
+// import {getAllContinentsQuery} from "../graphql/queries/getAllContinentsQuery";
+import {GetAllContinentsDocument} from "../graphql/queries/generated/graphql";
 
 export function useContinents() {
     const [data, setData] = useState<Continent[] | null>(null);
@@ -15,9 +16,9 @@ export function useContinents() {
             setLoading(true);
             try {
                 const res = await gqlClient.request<{ continents: Continent[] }>(
-                    getAllContinentsQuery
+                    GetAllContinentsDocument
                 );
-                console.log("Res", res)
+                console.log("ContinentsResponse", res)
                 if (isMounted) {
                     setData(res.continents);
                 }

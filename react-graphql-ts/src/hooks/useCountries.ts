@@ -1,7 +1,8 @@
 ﻿import {useEffect, useState} from "react";
 import type {Country} from "../types/appTypes";
 import {gqlClient} from "../graphql/gqlClient";
-import {getCountriesByContinentQuery} from "../graphql/queries/getCountriesByContinentQuery";
+// import {getCountriesByContinentQuery} from "../graphql/queries/getCountriesByContinentQuery";
+import {GetCountriesByContinentDocument} from "../graphql/queries/generated/graphql";
 
 export function useCountries(continentCode?: string | null) {
     const [data, setData] = useState<Country[] | null>(null);
@@ -9,6 +10,7 @@ export function useCountries(continentCode?: string | null) {
     const [error, setError] = useState<Error | null>(null);
 
     useEffect(() => {
+        console.log("ContinentCode", continentCode)
         if (!continentCode) {
             setData(null);
             setLoading(false);
@@ -23,7 +25,7 @@ export function useCountries(continentCode?: string | null) {
         const fetchCountries = async () => {
             try {
                 const res = await gqlClient.request<{ countries: Country[] }>(
-                    getCountriesByContinentQuery,
+                    GetCountriesByContinentDocument,
                     {continentCode}
                 );
                 if (isMounted) {
